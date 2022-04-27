@@ -185,7 +185,7 @@ class DeleteOperatorVisual extends BaseOperator {
 
 @RegisterAction
 export class YankOperator extends BaseOperator {
-  public keys = ['y'];
+  public keys = ['h'];
   public modes = [Mode.Normal, Mode.Visual, Mode.VisualLine];
   override createsUndoPoint = false;
 
@@ -276,7 +276,7 @@ class FilterOperator extends BaseOperator {
 
 @RegisterAction
 class ShiftYankOperatorVisual extends BaseOperator {
-  public keys = ['Y'];
+  public keys = ['H'];
   public modes = [Mode.Visual, Mode.VisualLine, Mode.VisualBlock];
 
   public async run(vimState: VimState, start: Position, end: Position): Promise<void> {
@@ -586,7 +586,7 @@ export class ChangeOperator extends BaseOperator {
 
 @RegisterAction
 class YankVisualBlockMode extends BaseOperator {
-  public keys = ['y'];
+  public keys = ['h'];
   public modes = [Mode.VisualBlock];
   override createsUndoPoint = false;
   runsOnceForEveryCursor() {

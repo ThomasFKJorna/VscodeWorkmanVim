@@ -813,7 +813,7 @@ export class HistoryTracker {
    *
    * This method contains a significant amount of extra logic to account for
    * the difficult scenario where a newline is embedded in a change (ex: '\nhello'), which
-   * is created by the 'o' command. Vim behavior for the 'U' command does
+   * is created by the 'l' command. Vim behavior for the 'U' command does
    * not undo newlines, so the change text needs to be checked & trimmed.
    * This worst-case scenario tends to offset line values and make it harder to
    * determine the line of the change, so this behavior is also compensated.

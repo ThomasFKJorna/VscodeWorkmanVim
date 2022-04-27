@@ -28,7 +28,7 @@ suite('Mode Visual Line', () => {
     await modeHandler.handleMultipleKeyEvents('iLine 1\nLine 2\nLine 3\nLine 4\nLine 5'.split(''));
     await modeHandler.handleMultipleKeyEvents(['<Esc>', 'g', 'g']);
 
-    await modeHandler.handleMultipleKeyEvents(['j', '3', 'V']);
+    await modeHandler.handleMultipleKeyEvents(['n', '3', 'V']);
     assert.strictEqual(modeHandler.currentMode, Mode.VisualLine);
     assert.strictEqual(modeHandler.vimState.cursorStartPosition.line, 1);
     assert.strictEqual(modeHandler.vimState.cursorStopPosition.line, 3);
@@ -75,14 +75,14 @@ suite('Mode Visual Line', () => {
 
   test('Can do vwd in middle of sentence', async () => {
     await modeHandler.handleMultipleKeyEvents('ione two three foar'.split(''));
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', '^', 'l', 'l', 'l', 'l', 'v', 'w', 'd']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', '^', 'o', 'o', 'o', 'o', 'v', 'w', 'd']);
 
     assertEqualLines(['one hree foar']);
   });
 
   test('Can do vwd in middle of sentence', async () => {
     await modeHandler.handleMultipleKeyEvents('ione two three'.split(''));
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', '^', 'l', 'l', 'l', 'l', 'v', 'w', 'd']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', '^', 'o', 'o', 'o', 'o', 'v', 'w', 'd']);
 
     assertEqualLines(['one hree']);
   });
@@ -111,10 +111,10 @@ suite('Mode Visual Line', () => {
     await modeHandler.handleMultipleKeyEvents([
       '<Esc>',
       '^',
-      'l',
-      'l',
-      'l',
-      'l',
+      'o',
+      'o',
+      'o',
+      'o',
       'v',
       'w',
       'b',
@@ -127,7 +127,7 @@ suite('Mode Visual Line', () => {
 
   test('handles case where we delete over a newline', async () => {
     await modeHandler.handleMultipleKeyEvents('ione two\n\nthree four'.split(''));
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', '0', 'k', 'k', 'v', '}', 'd']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', '0', 'e', 'e', 'v', '}', 'd']);
 
     assertEqualLines(['three four']);
   });
@@ -144,7 +144,7 @@ suite('Mode Visual Line', () => {
     test('delete through eol', async () => {
       await modeHandler.handleMultipleKeyEvents('ione\ntwo'.split(''));
 
-      await modeHandler.handleMultipleKeyEvents(['<Esc>', '^', 'g', 'g', 'v', 'l', 'l', 'l', 'd']);
+      await modeHandler.handleMultipleKeyEvents(['<Esc>', '^', 'g', 'g', 'v', 'o', 'o', 'o', 'd']);
 
       assertEqualLines(['two']);
     });
@@ -152,7 +152,7 @@ suite('Mode Visual Line', () => {
     test('join 2 lines by deleting through eol', async () => {
       await modeHandler.handleMultipleKeyEvents('ione\ntwo'.split(''));
 
-      await modeHandler.handleMultipleKeyEvents(['<Esc>', 'g', 'g', 'l', 'v', 'l', 'l', 'd']);
+      await modeHandler.handleMultipleKeyEvents(['<Esc>', 'g', 'g', 'o', 'v', 'o', 'o', 'd']);
 
       assertEqualLines(['otwo']);
     });
@@ -293,17 +293,17 @@ suite('Mode Visual Line', () => {
 
     test('<C-c> copies and sets mode to normal', async () => {
       await modeHandler.handleMultipleKeyEvents('ione two three'.split(''));
-      await modeHandler.handleMultipleKeyEvents(['<Esc>', 'Y', 'p']);
+      await modeHandler.handleMultipleKeyEvents(['<Esc>', 'H', 'p']);
 
       assertEqualLines(['one two three', 'one two three']);
 
-      await modeHandler.handleMultipleKeyEvents(['<Esc>', 'H', 'V', '<C-c>']);
+      await modeHandler.handleMultipleKeyEvents(['<Esc>', 'Y', 'V', '<C-c>']);
 
       // ensuring we're back in normal
       assert.strictEqual(modeHandler.currentMode, Mode.Normal);
 
       // test copy by pasting back from clipboard
-      await modeHandler.handleMultipleKeyEvents(['H', '"', '+', 'P']);
+      await modeHandler.handleMultipleKeyEvents(['Y', '"', '+', 'P']);
 
       // TODO: should be assertEqualLines(['one two three', 'one two three', 'one two three']);
       // unfortunately it is
@@ -398,7 +398,7 @@ suite('Mode Visual Line', () => {
       );
       await modeHandler.handleMultipleKeyEvents(['<Esc>']);
       await modeHandler.handleMultipleKeyEvents(
-        'yy'.split('') // yank the last line
+        'hh'.split('') // yank the last line
       );
       await modeHandler.handleMultipleKeyEvents(
         'ggVp'.split('') // replace the first line
@@ -529,7 +529,7 @@ suite('Mode Visual Line', () => {
   });
 
   newTest({
-    title: "Can handle 'J' when the selected area spans multiple lines",
+    title: "Can handle 'N' when the selected area spans multiple lines",
     start: ['o|ne', 'two', 'three', 'four'],
     keysPressed: 'VjjJ',
     end: ['one two| three', 'four'],

@@ -35,14 +35,14 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>p',
         start: ['|abc', 'one', 'two', 'three'],
-        keysPressed: 'dd' + 'j' + '2p',
+        keysPressed: 'dd' + 'n' + '2p',
         end: ['one', 'two', '|abc', 'abc', 'three'],
       });
 
       newTest({
         title: 'Yank two lines line-wise, <count>p',
         start: ['|abc', 'def', 'one', 'two', 'three'],
-        keysPressed: 'd2d' + 'j' + '2p',
+        keysPressed: 'd2d' + 'n' + '2p',
         end: ['one', 'two', '|abc', 'def', 'abc', 'def', 'three'],
       });
 
@@ -86,7 +86,7 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>p in Visual mode',
         start: ['one', '|two', 'three'],
-        keysPressed: 'yy' + 've' + '3p',
+        keysPressed: 'hh' + 've' + '3p',
         end: ['one', '', '|two', 'two', 'two', '', 'three'],
       });
 
@@ -109,7 +109,7 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>p in VisualLine mode',
         start: ['one', '|two', 'three'],
-        keysPressed: 'yy' + 'V' + '3p',
+        keysPressed: 'hh' + 'V' + '3p',
         end: ['one', '|two', 'two', 'two', 'three'],
       });
 
@@ -171,7 +171,7 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>P',
         start: ['|abc', 'one', 'two', 'three'],
-        keysPressed: 'dd' + 'j' + '2P',
+        keysPressed: 'dd' + 'n' + '2P',
         end: ['one', '|abc', 'abc', 'two', 'three'],
       });
 
@@ -208,7 +208,7 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>P in Visual mode',
         start: ['one', '|two', 'three'],
-        keysPressed: 'yy' + 've' + '3P',
+        keysPressed: 'hh' + 've' + '3P',
         end: ['one', '', '|two', 'two', 'two', '', 'three'],
       });
 
@@ -231,7 +231,7 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>P in VisualLine mode',
         start: ['one', '|two', 'three'],
-        keysPressed: 'yy' + 'V' + '3P',
+        keysPressed: 'hh' + 'V' + '3P',
         end: ['one', '|two', 'two', 'two', 'three'],
       });
 
@@ -293,7 +293,7 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>gp',
         start: ['|abc', 'one', 'two', 'three'],
-        keysPressed: 'dd' + 'j' + '2gp',
+        keysPressed: 'dd' + 'n' + '2gp',
         end: ['one', 'two', 'abc', 'abc', '|three'],
       });
 
@@ -337,7 +337,7 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>gp in Visual mode',
         start: ['one', '|two', 'three'],
-        keysPressed: 'yy' + 've' + '3gp',
+        keysPressed: 'hh' + 've' + '3gp',
         end: ['one', '', 'two', 'two', 'two', '|', 'three'],
       });
 
@@ -360,7 +360,7 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>gp in VisualLine mode',
         start: ['one', '|two', 'three'],
-        keysPressed: 'yy' + 'V' + '3gp',
+        keysPressed: 'hh' + 'V' + '3gp',
         end: ['one', 'two', 'two', 'two', '|three'],
       });
 
@@ -422,7 +422,7 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>gP',
         start: ['|abc', 'one', 'two', 'three'],
-        keysPressed: 'dd' + 'j' + '2gP',
+        keysPressed: 'dd' + 'n' + '2gP',
         end: ['one', 'abc', 'abc', '|two', 'three'],
       });
 
@@ -466,7 +466,7 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>gP in Visual mode',
         start: ['one', '|two', 'three'],
-        keysPressed: 'yy' + 've' + '3gP',
+        keysPressed: 'hh' + 've' + '3gP',
         end: ['one', '', 'two', 'two', 'two', '|', 'three'],
       });
 
@@ -489,7 +489,7 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>gP in VisualLine mode',
         start: ['one', '|two', 'three'],
-        keysPressed: 'yy' + 'V' + '3gP',
+        keysPressed: 'hh' + 'V' + '3gP',
         end: ['one', 'two', 'two', 'two', '|three'],
       });
 
@@ -551,7 +551,7 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>]p',
         start: ['|abc', 'one', '  two', 'three'],
-        keysPressed: 'dd' + 'j' + '2]p',
+        keysPressed: 'dd' + 'n' + '2]p',
         end: ['one', '  two', '  |abc', '  abc', 'three'],
       });
 
@@ -566,7 +566,7 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>]p in VisualLine mode',
         start: ['|XYZ', ' one', '  two', '   three'],
-        keysPressed: 'dd' + 'j' + 'V' + '2]p',
+        keysPressed: 'dd' + 'n' + 'V' + '2]p',
         end: [' one', '   |XYZ', '   XYZ', '   three'],
       });
 
@@ -611,7 +611,7 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>[p',
         start: ['|abc', 'one', '  two', 'three'],
-        keysPressed: 'dd' + 'j' + '2[p',
+        keysPressed: 'dd' + 'n' + '2[p',
         end: ['one', '  |abc', '  abc', '  two', 'three'],
       });
 
@@ -626,7 +626,7 @@ suite('put operator', () => {
       newTest({
         title: 'Yank line-wise, <count>[p in VisualLine mode',
         start: ['|XYZ', ' one', '  two', '   three'],
-        keysPressed: 'dd' + 'j' + 'V' + '2[p',
+        keysPressed: 'dd' + 'n' + 'V' + '2[p',
         end: [' one', '   |XYZ', '   XYZ', '   three'],
       });
 

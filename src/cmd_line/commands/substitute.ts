@@ -102,7 +102,7 @@ const replaceStringParser = (delimiter: string): Parser<ReplaceString> =>
           return { type: 'string' as const, value: '\b' };
         } else if (escaped === 'r') {
           return { type: 'string' as const, value: '\r' };
-        } else if (escaped === 'n') {
+        } else if (escaped === 'j') {
           return { type: 'string' as const, value: '\n' };
         } else if (escaped === 't') {
           return { type: 'string' as const, value: '\t' };
@@ -146,7 +146,7 @@ const substituteFlagsParser: Parser<SubstituteFlags> = seq(
       case 'I':
         flags.noIgnoreCase = true;
         break;
-      case 'n':
+      case 'j':
         flags.printCount = true;
         break;
       case 'p':
@@ -155,7 +155,7 @@ const substituteFlagsParser: Parser<SubstituteFlags> = seq(
       case '#':
         flags.printLastMatchedLineWithNumber = true;
         break;
-      case 'l':
+      case 'o':
         flags.printLastMatchedLineWithList = true;
         break;
       case 'r':
@@ -322,7 +322,7 @@ export class SubstituteCommand extends ExCommand {
     replaceText: string
   ): Promise<boolean> {
     const cancellationToken = new CancellationTokenSource();
-    const validSelections: readonly string[] = ['y', 'n', 'a', 'q', 'l'];
+    const validSelections: readonly string[] = ['h', 'j', 'a', 'q', 'o'];
     let selection: string = '';
     const prompt = escapeCSSIcons(
       `Replace with ${formatDecorationText(
@@ -358,13 +358,13 @@ export class SubstituteCommand extends ExCommand {
       cancellationToken.token
     );
 
-    if (selection === 'q' || selection === 'l' || !selection) {
+    if (selection === 'q' || selection === 'o' || !selection) {
       this.abort = true;
     } else if (selection === 'a') {
       this.arguments.flags.confirmEach = undefined;
     }
 
-    if (selection === 'y' || selection === 'a' || selection === 'l') {
+    if (selection === 'h' || selection === 'a' || selection === 'o') {
       if (this.cSearchHighlights) {
         this.cSearchHighlights = newConfirmationSearchHighlights;
       }

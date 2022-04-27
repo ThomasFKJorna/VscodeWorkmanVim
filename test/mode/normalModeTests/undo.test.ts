@@ -61,7 +61,7 @@ suite('Undo', () => {
     newTest({
       title: "Can handle 'u' after :s/abc/def twice",
       start: ['Xa|bcX', 'YabcY', 'ZabcZ'],
-      keysPressed: ':s/abc/def/\n' + 'j' + ':s/abc/def/\n' + 'u',
+      keysPressed: ':s/abc/def/\n' + 'n' + ':s/abc/def/\n' + 'u',
       end: ['XdefX', '|YabcY', 'ZabcZ'],
     });
 
@@ -103,7 +103,7 @@ suite('Undo', () => {
     newTest({
       title: 'Undo macro (`Jx`)',
       start: ['ap|ple', 'banana', 'carrot'],
-      keysPressed: 'qq' + 'Jx' + 'q' + '@q' + 'u',
+      keysPressed: 'qq' + 'Jx' + 'q' + 'q' + 'u',
       end: ['apple|banana', 'carrot'],
     });
 

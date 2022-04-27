@@ -2410,7 +2410,7 @@ The first commit to this project was a little over 3 years ago, and what a journ
 - fix for extra character when double click mouse selection [\#645](https://github.com/VSCodeVim/Vim/pull/645) ([xconverge](https://github.com/xconverge))
 - fix \#639 visual block mode minor issues [\#640](https://github.com/VSCodeVim/Vim/pull/640) ([xconverge](https://github.com/xconverge))
 - Ctrl+a and Ctrl+x now create undo points correctly and can be repeate… [\#636](https://github.com/VSCodeVim/Vim/pull/636) ([xconverge](https://github.com/xconverge))
-- fix \#501 some more to include 'k' [\#635](https://github.com/VSCodeVim/Vim/pull/635) ([xconverge](https://github.com/xconverge))
+- fix \#501 some more to include 'e' [\#635](https://github.com/VSCodeVim/Vim/pull/635) ([xconverge](https://github.com/xconverge))
 - updating the undo tree when using bracket operators slightly [\#634](https://github.com/VSCodeVim/Vim/pull/634) ([xconverge](https://github.com/xconverge))
 - fix \#501 [\#632](https://github.com/VSCodeVim/Vim/pull/632) ([xconverge](https://github.com/xconverge))
 - Fix bug \#613 ":wq command dows not work" [\#630](https://github.com/VSCodeVim/Vim/pull/630) ([Platzer](https://github.com/Platzer))

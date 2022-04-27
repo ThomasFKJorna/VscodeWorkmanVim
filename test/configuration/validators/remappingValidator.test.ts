@@ -36,7 +36,7 @@ suite('Remapping Validator', () => {
     const configuration = new Configuration();
     configuration.insertModeKeyBindings = [
       {
-        before: ['j', 'j'],
+        before: ['n', 'n'],
         after: ['<Esc>'],
       },
     ];
@@ -71,7 +71,7 @@ suite('Remapping Validator', () => {
     const configuration = new Configuration();
     configuration.insertModeKeyBindings = [
       {
-        before: ['j', 'j'],
+        before: ['n', 'n'],
       },
     ];
     configuration.insertModeKeyBindingsNonRecursive = [];
@@ -102,12 +102,12 @@ suite('Remapping Validator', () => {
     configuration.insertModeKeyBindingsNonRecursive = [];
     configuration.normalModeKeyBindings = [
       {
-        before: ['c', 'o', 'p', 'y'],
-        after: ['c', 'o', 'p', 'y'],
+        before: ['c', 'l', 'p', 'h'],
+        after: ['c', 'l', 'p', 'h'],
       },
       {
-        before: ['c', 'o', 'p', 'y'],
-        after: ['c', 'o', 'p', 'y'],
+        before: ['c', 'l', 'p', 'h'],
+        after: ['c', 'l', 'p', 'h'],
       },
     ];
     configuration.normalModeKeyBindingsNonRecursive = [];
@@ -136,14 +136,14 @@ suite('Remapping Validator', () => {
     configuration.insertModeKeyBindingsNonRecursive = [];
     configuration.normalModeKeyBindings = [
       {
-        before: ['c', 'o', 'p', 'y'],
-        after: ['c', 'o', 'p', 'y'],
+        before: ['c', 'l', 'p', 'h'],
+        after: ['c', 'l', 'p', 'h'],
       },
     ];
     configuration.normalModeKeyBindingsNonRecursive = [
       {
-        before: ['c', 'o', 'p', 'y'],
-        after: ['c', 'o', 'p', 'y'],
+        before: ['c', 'l', 'p', 'h'],
+        after: ['c', 'l', 'p', 'h'],
       },
     ];
     configuration.visualModeKeyBindings = [];

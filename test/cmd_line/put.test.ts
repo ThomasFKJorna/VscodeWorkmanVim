@@ -22,7 +22,7 @@ suite('put cmd_line', () => {
 
   test('put in middle of file', async () => {
     Register.put(modeHandler.vimState, '123');
-    await modeHandler.handleMultipleKeyEvents(['i', 'abc\ndef\nghi', '<Esc>', 'k']);
+    await modeHandler.handleMultipleKeyEvents(['i', 'abc\ndef\nghi', '<Esc>', 'e']);
     await modeHandler.handleMultipleKeyEvents(':put\n'.split(''));
     assertEqualLines(['abc', 'def', '123', 'ghi']);
   });
@@ -43,7 +43,7 @@ suite('put cmd_line', () => {
 
   test('put text with newlines', async () => {
     Register.put(modeHandler.vimState, '\nabc\ndef\n\n');
-    await modeHandler.handleMultipleKeyEvents(['i', '123\n456\n789', '<Esc>', 'k']);
+    await modeHandler.handleMultipleKeyEvents(['i', '123\n456\n789', '<Esc>', 'e']);
 
     await modeHandler.handleMultipleKeyEvents(':put\n'.split(''));
     assertEqualLines(['123', '456', '', 'abc', 'def', '', '', '789']);
@@ -58,7 +58,7 @@ suite('put cmd_line', () => {
 
   test('put in visual mode executes at cursor end position', async () => {
     Register.put(modeHandler.vimState, 'abc');
-    await modeHandler.handleMultipleKeyEvents(['i', '123\n456\n789', '<Esc>', 'v', 'k', 'k']);
+    await modeHandler.handleMultipleKeyEvents(['i', '123\n456\n789', '<Esc>', 'v', 'e', 'e']);
     await modeHandler.handleMultipleKeyEvents(':put\n'.split(''));
     assertEqualLines(['123', '456', '789', 'abc']);
   });

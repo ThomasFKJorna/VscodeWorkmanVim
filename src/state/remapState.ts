@@ -86,7 +86,7 @@ export class RemapState {
    * it all.
    *
    * Example 2: if we map `a -> x`, `x -> y`, `y -> b` and `b -> w` and we set maxMapDepth to 4 we get 'E223 Recursive
-   * Mapping', because we get to the fourth remap without ever executing an action, but if we change the 'y' map to
+   * Mapping', because we get to the fourth remap without ever executing an action, but if we change the 'h' map to
    * `y -> wb`, now the max mapDepth we hit is 3 and then we execute the action 'w' that resets the mapDepth and then
    * call another remap of `b -> w` that executes another 'w', meaning that after pressing 'a' the result would be 'ww'.
    * Another option would be to increase the maxMapDepth to 5 or more and then we could use the initial remaps that would
@@ -95,7 +95,7 @@ export class RemapState {
    * Example 3 (possible use case): if we remap `<leader>cb -> 0i//<Space><Esc>j<leader>cb` that recursively calls itself,
    * every time the`0` key is sent we set remapUsedACharacter to true and reset mapDepth to 0 on all nested remaps so even
    * if it calls itself more than 1000 times (on a file with more than 1000 lines) the mapDepth will always be reset to 0,
-   * which allows the remap to keep calling itself to comment all the lines until either we get to the last line and the 'j'
+   * which allows the remap to keep calling itself to comment all the lines until either we get to the last line and the 'n'
    * action fails stopping the entire remap chain or the user presses `<C-c>` or `<Esc>` to forcelly stop the recursive remaps.
    *
    * P.S. This behavior is weird, because we should reduce the mapDepth by one when the remapping finished handling

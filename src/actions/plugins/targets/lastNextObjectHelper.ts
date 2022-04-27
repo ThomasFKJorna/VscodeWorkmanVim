@@ -12,14 +12,14 @@ import { bracketObjectsEnabled } from './targetsConfig';
  * It works by searching for a next/last character, and then applying the given action in its position.
  * For examples of how to use it, see src/actions/plugins/targets/lastNextObjects.ts.
  */
-function LastNextObject<T extends MoveInsideCharacter>(type: new () => T, which: 'l' | 'n') {
+function LastNextObject<T extends MoveInsideCharacter>(type: new () => T, which: 'o' | 'j') {
   abstract class NextHandlerClass extends BaseMovement {
     public override readonly keys: readonly string[] | readonly string[][];
     override isJump = true;
 
     // actual action (e.g. `i(` )
     private readonly actual: T;
-    readonly secondKey: 'l' | 'n' = which;
+    readonly secondKey: 'o' | 'j' = which;
     // character to search forward/backward for next/last (e.g. `(` for next parenthesis)
     abstract readonly charToFind: string;
     // this is just to make sure we won't register anything that we can't handle. see constructor.
@@ -44,7 +44,7 @@ function LastNextObject<T extends MoveInsideCharacter>(type: new () => T, which:
       };
 
       // we want fail without throwing an exception, but with log, to not break the Vim
-      const errMsg = `failed to register ${which === 'l' ? 'last' : 'next'} for ${type.name}`;
+      const errMsg = `failed to register ${which === 'o' ? 'last' : 'next'} for ${type.name}`;
       // failed, but it should never happen
       if (this.actual.keys.length < 1) {
         this.valid = false;
@@ -85,7 +85,7 @@ function LastNextObject<T extends MoveInsideCharacter>(type: new () => T, which:
       lastIteration: boolean
     ): Promise<IMovement> {
       const maybePosition = searchPosition(this.charToFind, vimState.document, position, {
-        direction: which === 'l' ? '<' : '>',
+        direction: which === 'o' ? '<' : '>',
         includeCursor: false,
         throughLineBreaks: true,
       });
@@ -123,8 +123,8 @@ function LastNextObject<T extends MoveInsideCharacter>(type: new () => T, which:
 }
 
 export function LastObject<T extends MoveInsideCharacter>(type: new () => T) {
-  return LastNextObject(type, 'l');
+  return LastNextObject(type, 'o');
 }
 export function NextObject<T extends MoveInsideCharacter>(type: new () => T) {
-  return LastNextObject(type, 'n');
+  return LastNextObject(type, 'j');
 }

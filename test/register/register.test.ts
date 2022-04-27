@@ -82,7 +82,7 @@ suite('register', () => {
   newTest({
     title: "Yank stores text in Register '0'",
     start: ['|test1', 'test2', 'test3'],
-    keysPressed: 'yy' + 'j' + 'yy' + 'gg' + 'dd' + '"0P',
+    keysPressed: 'hh' + 'n' + 'hh' + 'gg' + 'dd' + '"0P',
     end: ['|test2', 'test2', 'test3'],
   });
 
@@ -139,21 +139,21 @@ suite('register', () => {
   newTest({
     title: 'Small deletion using x is stored in small delete register',
     start: ['|test1', 'test2', 'test3'],
-    keysPressed: '2x' + 'j' + '"-p',
+    keysPressed: '2x' + 'n' + '"-p',
     end: ['st1', 'tt|eest2', 'test3'],
   });
 
   newTest({
     title: 'Small deletion using Del is stored in small delete register',
     start: ['|test1', 'test2', 'test3'],
-    keysPressed: '<Del>' + 'j' + '"-p',
+    keysPressed: '<Del>' + 'n' + '"-p',
     end: ['est1', 't|test2', 'test3'],
   });
 
   newTest({
     title: 'Small deletion using X is stored in small delete register',
     start: ['te|st1', 'test2', 'test3'],
-    keysPressed: '2X' + 'j' + '"-p',
+    keysPressed: '2X' + 'n' + '"-p',
     end: ['st1', 'tt|eest2', 'test3'],
   });
 

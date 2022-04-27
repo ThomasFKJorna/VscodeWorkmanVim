@@ -147,17 +147,17 @@ suite('VisualBlock mode', () => {
 
     test('`<C-c>` copies and sets mode to normal', async () => {
       await modeHandler.handleMultipleKeyEvents('ione two three'.split(''));
-      await modeHandler.handleMultipleKeyEvents(['<Esc>', 'Y', 'p', 'p']);
+      await modeHandler.handleMultipleKeyEvents(['<Esc>', 'H', 'p', 'p']);
 
       assertEqualLines(['one two three', 'one two three', 'one two three']);
 
-      await modeHandler.handleMultipleKeyEvents(['<Esc>', 'H', '<C-v>', 'e', 'j', 'j', '<C-c>']);
+      await modeHandler.handleMultipleKeyEvents(['<Esc>', 'Y', '<C-v>', 'e', 'n', 'n', '<C-c>']);
 
       // ensuring we're back in normal
       assert.strictEqual(modeHandler.currentMode, Mode.Normal);
 
       // test copy by pasting back
-      await modeHandler.handleMultipleKeyEvents(['H', '"', '+', 'P']);
+      await modeHandler.handleMultipleKeyEvents(['Y', '"', '+', 'P']);
 
       // TODO: should be
       // assertEqualLines(['oneone two three', 'oneone two three', 'oneone two three']);
@@ -183,7 +183,7 @@ suite('VisualBlock mode', () => {
   newTest({
     title: '`o` works in VisualBlock mode',
     start: ['|foo', 'bar', 'baz'],
-    keysPressed: '<C-v>' + 'jjll' + 'o' + 'l' + 'd',
+    keysPressed: '<C-v>' + 'jjll' + 'l' + 'o' + 'd',
     end: ['|f', 'b', 'b'],
   });
 
@@ -208,7 +208,7 @@ suite('VisualBlock mode', () => {
 
   suite('`J`', () => {
     newTest({
-      title: "Can handle 'J' when the entire visual block is on the same line",
+      title: "Can handle 'N' when the entire visual block is on the same line",
       start: ['one', '|two', 'three', 'four'],
       keysPressed: '<C-v>lJ',
       end: ['one', 'two| three', 'four'],
@@ -216,7 +216,7 @@ suite('VisualBlock mode', () => {
     });
 
     newTest({
-      title: "Can handle 'J' when the visual block spans multiple lines",
+      title: "Can handle 'N' when the visual block spans multiple lines",
       start: ['o|ne', 'two', 'three', 'four'],
       keysPressed: '<C-v>jjlJ',
       end: ['one two| three', 'four'],
@@ -224,7 +224,7 @@ suite('VisualBlock mode', () => {
     });
 
     newTest({
-      title: "Can handle 'J' when start position of the visual block is below the stop",
+      title: "Can handle 'N' when start position of the visual block is below the stop",
       start: ['one', 'two', 't|hree', 'four'],
       keysPressed: '<C-v>kkJ',
       end: ['one two| three', 'four'],

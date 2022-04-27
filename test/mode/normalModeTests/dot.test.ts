@@ -36,7 +36,7 @@ suite('Dot Operator', () => {
   });
 
   newTest({
-    title: "Can repeat 'J'",
+    title: "Can repeat 'N'",
     start: ['|one', 'two', 'three'],
     keysPressed: 'J.',
     end: ['one two| three'],
@@ -225,7 +225,7 @@ suite('Dot Operator repeat with remap', () => {
     const configuration = new Configuration();
     configuration.insertModeKeyBindings = [
       {
-        before: ['j', 'j', 'k'],
+        before: ['n', 'n', 'e'],
         after: ['<esc>'],
       },
     ];

@@ -44,7 +44,7 @@ type TagReplacement = {
 };
 
 export interface SurroundState {
-  /** The operator paired with the surround action. "yank" is really "add", but it uses 'y' */
+  /** The operator paired with the surround action. "yank" is really "add", but it uses 'h' */
   operator: 'change' | 'delete' | 'yank';
 
   /** target of surround op: X in csXy and dsX */

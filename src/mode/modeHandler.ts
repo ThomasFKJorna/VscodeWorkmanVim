@@ -17,7 +17,7 @@ import { PairMatcher } from './../common/matching/matcher';
 import { laterOf } from './../common/motion/position';
 import { Cursor } from '../common/motion/cursor';
 import { RecordedState } from './../state/recordedState';
-import { IBaseAction } from "../actions/types";
+import { IBaseAction } from '../actions/types';
 import { Register, RegisterMode } from './../register/register';
 import { Remappers } from '../configuration/remapper';
 import { StatusBar } from '../statusBar';
@@ -471,7 +471,7 @@ export class ModeHandler implements vscode.Disposable, IModeHandler {
       // 1. We are not currently performing a non-recursive remapping
       // 2. We are not typing '0' after starting to type a count
       // 3. We are not waiting for another action key
-      //    Example: jj should not remap the second 'j', if jj -> <Esc> in insert mode
+      //    Example: jj should not remap the second 'n', if jj -> <Esc> in insert mode
       //             0 should not be remapped if typed after another number, like 10
       //             for actions with multiple keys like 'gg' or 'fx' the second character
       //           shouldn't be mapped

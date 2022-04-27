@@ -18,7 +18,7 @@ suite('Remapper', () => {
   const leaderKey = '\\';
   const defaultInsertModeKeyBindings: IKeyRemapping[] = [
     {
-      before: ['j', 'j'],
+      before: ['n', 'n'],
       after: ['<Esc>'],
     },
     {
@@ -46,8 +46,8 @@ suite('Remapper', () => {
       ],
     },
     {
-      before: ['y', 'y'],
-      after: ['y', 'l'],
+      before: ['h', 'h'],
+      after: ['h', 'o'],
     },
     {
       before: ['e'],
@@ -255,7 +255,7 @@ suite('Remapper', () => {
     // act
     let actual = false;
     try {
-      actual = await remapper.sendKey(['j', 'j'], modeHandler);
+      actual = await remapper.sendKey(['n', 'n'], modeHandler);
     } catch (e) {
       assert.fail(e);
     }
@@ -443,7 +443,7 @@ suite('Remapper', () => {
     await setupWithBindings({
       insertModeKeyBindings: [
         {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           after: ['<Esc>'],
         },
       ],
@@ -457,7 +457,7 @@ suite('Remapper', () => {
     // act
     await modeHandler.handleMultipleKeyEvents(['c', 'i', 'w']);
     assert.strictEqual(modeHandler.currentMode, Mode.Insert);
-    await modeHandler.handleMultipleKeyEvents(['j', 'j']);
+    await modeHandler.handleMultipleKeyEvents(['n', 'n']);
 
     // assert
     assert.strictEqual(modeHandler.currentMode, Mode.Normal);
@@ -468,7 +468,7 @@ suite('Remapper', () => {
     await setupWithBindings({
       insertModeKeyBindings: [
         {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           after: ['<Esc>'],
         },
       ],
@@ -482,7 +482,7 @@ suite('Remapper', () => {
     // act
     await modeHandler.handleMultipleKeyEvents(['3', 'i', '=']);
     assert.strictEqual(modeHandler.currentMode, Mode.Insert);
-    await modeHandler.handleMultipleKeyEvents(['j', 'j']);
+    await modeHandler.handleMultipleKeyEvents(['n', 'n']);
 
     // assert
     assert.strictEqual(modeHandler.currentMode, Mode.Normal);
@@ -494,7 +494,7 @@ suite('Remapper', () => {
     await setupWithBindings({
       insertModeKeyBindings: [
         {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           after: ['<Esc>'],
         },
       ],
@@ -508,7 +508,7 @@ suite('Remapper', () => {
     // act
     await modeHandler.handleMultipleKeyEvents(['a', 'bar']);
     assert.strictEqual(modeHandler.currentMode, Mode.Insert);
-    await modeHandler.handleMultipleKeyEvents(['j', 'j']);
+    await modeHandler.handleMultipleKeyEvents(['n', 'n']);
     assertEqualLines(['foobar']);
 
     // assert
@@ -520,7 +520,7 @@ suite('Remapper', () => {
     await setupWithBindings({
       insertModeKeyBindings: [
         {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           after: ['<Esc>'],
         },
       ],
@@ -534,7 +534,7 @@ suite('Remapper', () => {
     // act
     await modeHandler.handleMultipleKeyEvents(['a', 'bar']);
     assert.strictEqual(modeHandler.currentMode, Mode.Insert);
-    await modeHandler.handleMultipleKeyEvents(['j', 'j']);
+    await modeHandler.handleMultipleKeyEvents(['n', 'n']);
     assertEqualLines(['foobar']);
 
     // assert
@@ -550,10 +550,10 @@ suite('Remapper', () => {
       normalModeKeyBindings: [
         {
           before: ['x'],
-          after: ['y'],
+          after: ['h'],
         },
         {
-          before: ['y'],
+          before: ['h'],
           after: ['x'],
         },
       ],

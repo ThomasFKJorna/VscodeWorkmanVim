@@ -18,7 +18,7 @@ suite('VimrcKeyRemappingBuilder', () => {
       {
         vimrcLine: 'imap jj <Esc>',
         keyRemapping: {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           after: ['<Esc>'],
           source: 'vimrc',
         },
@@ -28,7 +28,7 @@ suite('VimrcKeyRemappingBuilder', () => {
       {
         vimrcLine: 'ino jj <Esc>',
         keyRemapping: {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           after: ['<Esc>'],
           source: 'vimrc',
         },
@@ -38,7 +38,7 @@ suite('VimrcKeyRemappingBuilder', () => {
       {
         vimrcLine: 'nore! jj <Esc>',
         keyRemapping: {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           after: ['<Esc>'],
           source: 'vimrc',
         },
@@ -81,7 +81,7 @@ suite('VimrcKeyRemappingBuilder', () => {
         // Mapping with <silent> argument (argument is ignored)
         vimrcLine: 'noremap <silent> jj <Esc>',
         keyRemapping: {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           after: ['<Esc>'],
           source: 'vimrc',
         },
@@ -92,7 +92,7 @@ suite('VimrcKeyRemappingBuilder', () => {
         // Mapping with <buffer> argument (argument is ignored)
         vimrcLine: 'noremap <buffer> jj <Esc>',
         keyRemapping: {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           after: ['<Esc>'],
           source: 'vimrc',
         },
@@ -103,7 +103,7 @@ suite('VimrcKeyRemappingBuilder', () => {
         // Mapping with multiple arguments (arguments are ignored)
         vimrcLine: 'noremap <buffer> <silent> jj <Esc>',
         keyRemapping: {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           after: ['<Esc>'],
           source: 'vimrc',
         },
@@ -177,7 +177,7 @@ suite('VimrcKeyRemappingBuilder', () => {
       {
         vimrcLine: 'iunmap jj',
         keyRemapping: {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           source: 'vimrc',
         },
         keyRemappingType: 'iunmap',
@@ -186,7 +186,7 @@ suite('VimrcKeyRemappingBuilder', () => {
       {
         vimrcLine: 'iun jj',
         keyRemapping: {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           source: 'vimrc',
         },
         keyRemappingType: 'iun',
@@ -195,7 +195,7 @@ suite('VimrcKeyRemappingBuilder', () => {
       {
         vimrcLine: 'unm! jj',
         keyRemapping: {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           source: 'vimrc',
         },
         keyRemappingType: 'unm!',
@@ -214,7 +214,7 @@ suite('VimrcKeyRemappingBuilder', () => {
         // Unmapping with <silent> argument (argument is ignored)
         vimrcLine: 'nunmap <silent> jj',
         keyRemapping: {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           source: 'vimrc',
         },
         keyRemappingType: 'nunmap',
@@ -224,7 +224,7 @@ suite('VimrcKeyRemappingBuilder', () => {
         // Unmapping with <buffer> argument (argument is ignored)
         vimrcLine: 'nunmap <buffer> jj',
         keyRemapping: {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           source: 'vimrc',
         },
         keyRemappingType: 'nunmap',
@@ -234,7 +234,7 @@ suite('VimrcKeyRemappingBuilder', () => {
         // Unmapping with multiple arguments (arguments are ignored)
         vimrcLine: 'nunmap <buffer> <silent> jj',
         keyRemapping: {
-          before: ['j', 'j'],
+          before: ['n', 'n'],
           source: 'vimrc',
         },
         keyRemappingType: 'nunmap',

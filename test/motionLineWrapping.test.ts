@@ -19,14 +19,14 @@ suite('motion line wrapping', () => {
       newTest({
         title: 'h wraps to previous line',
         start: ['line 1', '|line 2'],
-        keysPressed: 'h',
+        keysPressed: 'y',
         end: ['line |1', 'line 2'],
       });
 
       newTest({
         title: 'l wraps to next line',
         start: ['line |1', 'line 2'],
-        keysPressed: 'l',
+        keysPressed: 'o',
         end: ['line 1', '|line 2'],
       });
 
@@ -88,14 +88,14 @@ suite('motion line wrapping', () => {
       newTest({
         title: 'h does not wrap to previous line',
         start: ['line 1', '|line 2'],
-        keysPressed: 'h',
+        keysPressed: 'y',
         end: ['line 1', '|line 2'],
       });
 
       newTest({
         title: 'l does not wrap to next line',
         start: ['line |1', 'line 2'],
-        keysPressed: 'l',
+        keysPressed: 'o',
         end: ['line |1', 'line 2'],
       });
 

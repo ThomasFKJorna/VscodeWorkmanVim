@@ -7,7 +7,7 @@ suite('PythonDocument lines generator', () => {
   let doc: TextDocument;
 
   setup(() => {
-    _lines = ['x', 'y', 'z'];
+    _lines = ['x', 'h', 'z'];
 
     doc = {
       lineCount: _lines.length,
@@ -26,7 +26,7 @@ suite('PythonDocument lines generator', () => {
     // THEN
     assert.equal(array.length, 3);
     assert.equal(array[0], 'x');
-    assert.equal(array[1], 'y');
+    assert.equal(array[1], 'h');
     assert.equal(array[2], 'z');
   });
 });

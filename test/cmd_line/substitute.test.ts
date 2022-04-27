@@ -124,7 +124,7 @@ suite('Basic substitute', () => {
   newTest({
     title: 'Repeat replacement across relative line range',
     start: ['|blah blah', 'blah', 'blah blah', 'blah blah'],
-    keysPressed: sub('blah', 'yay') + 'j' + '3:s\n',
+    keysPressed: sub('blah', 'yay') + 'n' + '3:s\n',
     end: ['yay blah', 'yay', 'yay blah', '|yay blah'],
     statusBar: '3 substitutions on 3 lines',
   });
@@ -345,7 +345,7 @@ suite('Basic substitute', () => {
       keysPressed:
         '/bar\n' + // search for bar (search state now = bar)
         ':s/ar/ite\n' + // change first bar to bite (search state now = ar, not bar)
-        'n' + // repeat search (ar, not bar)
+        'j' + // repeat search (ar, not bar)
         'rr', // and replace a with r
       end: ['foo', 'bite', 'foo', 'b|rr'],
     });
@@ -367,15 +367,15 @@ suite('Basic substitute', () => {
       ],
       keysPressed:
         sub('ganon', 'zelda') + // replace ganon with zelda (ensuring we have a prior replacement state)
-        'n' + // find next ganon
+        'j' + // find next ganon
         ':s/\n' + // replace ganon with nothing (using prior state)
         sub('ganon', 'zelda') + // does nothing (just ensuring we have a prior replacement state)
-        'n' + // find next ganon
+        'j' + // find next ganon
         ':s//\n' + // replace ganon with nothing (using prior state)
-        'n' + // find next ganon
+        'j' + // find next ganon
         ':s/ganon\n' + // replace ganon with nothing (using single input)
         sub('ganon', 'zelda') + // does nothing (just ensuring we have a prior replacement state)
-        'n' + // find next ganon
+        'j' + // find next ganon
         ':s///g\n', // replace ganon with nothing
       end: [
         'link',
@@ -399,7 +399,7 @@ suite('Basic substitute', () => {
         sub('ink', 'egend') + // replace link with legend (search state now = egend, and substitute state set)
         '/link\n' + // search for link (search state now = link, not ink)
         ':s\n' + // repeat replacement (using substitute state, so ink, not link - note: search state should NOT change)
-        'n' + // repeat search for link, not ink
+        'j' + // repeat search for link, not ink
         'rp', // and replace l with p (confirming search state was unaltered)
       end: ['legend', 'zelda', 'legend', 'zelda', '|pink'],
     });
@@ -407,7 +407,7 @@ suite('Basic substitute', () => {
     newTest({
       title: 'Substitute repeat previous should accept flags',
       start: ['|fooo'],
-      keysPressed: sub('o', 'un') + ':s g\n', // repeated replacement accepts g flag, replacing all other occurrences
+      keysPressed: sub('l', 'un') + ':s g\n', // repeated replacement accepts g flag, replacing all other occurrences
       end: ['|fununun'],
     });
 

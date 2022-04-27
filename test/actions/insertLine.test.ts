@@ -1,6 +1,9 @@
 import * as assert from 'assert';
 import { Position, window } from 'vscode';
-import { getCurrentParagraphBeginning, getCurrentParagraphEnd } from '../../src/textobject/paragraph';
+import {
+  getCurrentParagraphBeginning,
+  getCurrentParagraphEnd,
+} from '../../src/textobject/paragraph';
 import { WordType } from '../../src/textobject/word';
 import { TextEditor } from '../../src/textEditor';
 import { assertEqualLines, cleanUpWorkspace, setupWorkspace } from '../testUtils';
@@ -36,7 +39,7 @@ suite('insertLineBefore', () => {
     //    a
     //    b
     //    c
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', '2', 'G', 'O', 'a']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', '2', 'G', 'L', 'a']);
     const text = vscode.window.activeTextEditor?.document.getText().split('\n');
     assert.ok(text);
     assert.strictEqual(text[1].replace(/[\n\r]/g, ''), text[2].replace(/[\n\r]/g, ''));
@@ -53,7 +56,7 @@ suite('insertLineBefore', () => {
     //    a
     //    b
     //    c
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', '3', 'G', 'O', 'b']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', '3', 'G', 'L', 'b']);
     const text = vscode.window.activeTextEditor?.document.getText().split('\n');
     assert.ok(text);
     assert.strictEqual(text[2].replace(/[\n\r]/g, ''), text[3].replace(/[\n\r]/g, ''));
@@ -72,7 +75,7 @@ suite('insertLineBefore', () => {
     //    a
     //        b
     //    c
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', '4', 'G', '2', 'O', 'c']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', '4', 'G', '2', 'L', 'c']);
     const text = vscode.window.activeTextEditor?.document.getText().split('\n');
     //
     //    a
@@ -93,7 +96,7 @@ suite('insertLineBefore', () => {
 
     // This is the current state of the document
     //    a
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', 'g', 'g', 'O', 'a']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', 'g', 'g', 'L', 'a']);
     const text = vscode.window.activeTextEditor?.document.getText().split('\n');
     assert.ok(text);
     assert.strictEqual(text[0].replace(/[\n\r]/g, ''), text[1].replace(/[\n\r]/g, ''));
@@ -107,7 +110,7 @@ suite('insertLineBefore', () => {
     // This is the current state of the document
     //
     //    a
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', '2', 'G', '2', 'O', 'a']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', '2', 'G', '2', 'L', 'a']);
     // After
     //
     //    a

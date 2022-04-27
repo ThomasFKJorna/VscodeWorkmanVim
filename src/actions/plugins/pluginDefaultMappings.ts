@@ -11,12 +11,12 @@ export class PluginDefaultMappings {
     {
       mode: 'normalModeKeyBindingsNonRecursive',
       configSwitch: 'surround',
-      mapping: { before: ['y', 's'], after: ['<plugys>'] },
+      mapping: { before: ['h', 's'], after: ['<plugys>'] },
     },
     {
       mode: 'normalModeKeyBindingsNonRecursive',
       configSwitch: 'surround',
-      mapping: { before: ['y', 's', 's'], after: ['<plugys>', '<plugys>'] },
+      mapping: { before: ['h', 's', 's'], after: ['<plugys>', '<plugys>'] },
     },
     {
       mode: 'normalModeKeyBindingsNonRecursive',

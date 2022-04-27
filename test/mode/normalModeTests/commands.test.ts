@@ -96,7 +96,7 @@ suite('Mode Normal', () => {
   });
 
   newTest({
-    title: "Can handle 'yy'",
+    title: "Can handle 'hh'",
     start: ['|one'],
     keysPressed: 'yyO<Esc>p',
     end: ['', '|one', 'one'],
@@ -219,112 +219,112 @@ suite('Mode Normal', () => {
   });
 
   newTest({
-    title: "Can handle 'J' once",
+    title: "Can handle 'N' once",
     start: ['one', 'tw|o'],
     keysPressed: 'kJ',
     end: ['one| two'],
   });
 
   newTest({
-    title: "Can handle 'J' twice",
+    title: "Can handle 'N' twice",
     start: ['one', 'two', 'thre|e'],
     keysPressed: 'kkJJ',
     end: ['one two| three'],
   });
 
   newTest({
-    title: "Can handle 'J' with empty last line",
+    title: "Can handle 'N' with empty last line",
     start: ['one', 'two', '|'],
     keysPressed: 'kJ',
     end: ['one', 'tw|o'],
   });
 
   newTest({
-    title: "Can handle 'J's with multiple empty last lines",
+    title: "Can handle 'N's with multiple empty last lines",
     start: ['one', 'two', '', '', '', '|'],
     keysPressed: 'kkkkkJJJJJ',
     end: ['one tw|o'],
   });
 
   newTest({
-    title: "Can handle 'J' with leading white space on next line",
+    title: "Can handle 'N' with leading white space on next line",
     start: ['on|e', ' two'],
     keysPressed: 'kJ',
     end: ['one| two'],
   });
 
   newTest({
-    title: "Can handle 'J' with only white space on next line",
+    title: "Can handle 'N' with only white space on next line",
     start: ['on|e', '    '],
-    keysPressed: 'J',
+    keysPressed: 'N',
     end: ['on|e'],
   });
 
   newTest({
-    title: "Can handle 'J' with TWO indented lines",
+    title: "Can handle 'N' with TWO indented lines",
     start: ['   on|e', '    two'],
     keysPressed: 'kJ',
     end: ['   one| two'],
   });
 
   newTest({
-    title: "Can handle 'J' with ')' first character on next line",
+    title: "Can handle 'N' with ')' first character on next line",
     start: ['one(', ')tw|o'],
     keysPressed: 'kJ',
     end: ['one(|)two'],
   });
 
   newTest({
-    title: "Can handle 'J' with line ending with '.'",
+    title: "Can handle 'N' with line ending with '.'",
     start: ['one.', 'tw|o'],
     keysPressed: 'kJ',
     end: ['one.|  two'],
   });
 
   newTest({
-    title: "Can handle 'J' with line ending with '?'",
+    title: "Can handle 'N' with line ending with '?'",
     start: ['one?', 'tw|o'],
     keysPressed: 'kJ',
     end: ['one?|  two'],
   });
 
   newTest({
-    title: "Can handle 'J' with line ending with '!'",
+    title: "Can handle 'N' with line ending with '!'",
     start: ['one!', 'tw|o'],
     keysPressed: 'kJ',
     end: ['one!|  two'],
   });
 
   newTest({
-    title: "Can handle 'J' with line ending with tab",
+    title: "Can handle 'N' with line ending with tab",
     start: ['one.\t', 'tw|o'],
     keysPressed: 'kJ',
     end: ['one.\t|two'],
   });
 
   newTest({
-    title: "Can handle 'J' with a following delete",
+    title: "Can handle 'N' with a following delete",
     start: ['on|e', 'two'],
     keysPressed: 'Jx',
     end: ['one|two'],
   });
 
   newTest({
-    title: "Can handle 'J' with count",
+    title: "Can handle 'N' with count",
     start: ['|one', 'two', 'three', 'four'],
     keysPressed: '3J',
     end: ['one two| three', 'four'],
   });
 
   newTest({
-    title: "Can handle 'J' with count if count is larger than EOF",
+    title: "Can handle 'N' with count if count is larger than EOF",
     start: ['|one', 'two', 'three', 'four'],
     keysPressed: '100J',
     end: ['one two three| four'],
   });
 
   newTest({
-    title: "Can handle 'J' in Visual Line mode",
+    title: "Can handle 'N' in Visual Line mode",
     start: ['on|e', 'two'],
     keysPressed: 'VJ',
     end: ['one| two'],

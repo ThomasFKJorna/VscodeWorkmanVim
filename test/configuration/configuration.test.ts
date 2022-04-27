@@ -10,8 +10,8 @@ suite('Configuration', () => {
   configuration.leader = '<space>';
   configuration.normalModeKeyBindingsNonRecursive = [
     {
-      before: ['leader', 'o'],
-      after: ['o', 'eSc', 'k'],
+      before: ['leader', 'l'],
+      after: ['l', 'eSc', 'e'],
     },
     {
       before: ['<leader>', 'f', 'e', 's'],
@@ -33,8 +33,8 @@ suite('Configuration', () => {
 
     assert.strictEqual(normalizedKeybinds.length, testingKeybinds.length);
     assert.strictEqual(normalizedKeybinds.length, normalizedKeybindsMap.size);
-    assert.deepStrictEqual(normalizedKeybinds[0].before, [' ', 'o']);
-    assert.deepStrictEqual(normalizedKeybinds[0].after, ['o', '<Esc>', 'k']);
+    assert.deepStrictEqual(normalizedKeybinds[0].before, [' ', 'l']);
+    assert.deepStrictEqual(normalizedKeybinds[0].after, ['l', '<Esc>', 'e']);
   });
 
   newTest({

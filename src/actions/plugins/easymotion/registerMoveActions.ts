@@ -153,7 +153,7 @@ class EasyMotionStartOfWordBidirectionalCommand extends EasyMotionWordMoveComman
 
 @RegisterAction
 class EasyMotionLineForward extends EasyMotionWordMoveCommandBase {
-  keys = buildTriggerKeys({ key: 'l' });
+  keys = buildTriggerKeys({ key: 'o' });
 
   constructor() {
     super({ jumpToAnywhere: true, searchOptions: 'min', labelPosition: 'after' });
@@ -162,7 +162,7 @@ class EasyMotionLineForward extends EasyMotionWordMoveCommandBase {
 
 @RegisterAction
 class EasyMotionLineBackward extends EasyMotionWordMoveCommandBase {
-  keys = buildTriggerKeys({ key: 'h' });
+  keys = buildTriggerKeys({ key: 'y' });
 
   constructor() {
     super({ jumpToAnywhere: true, searchOptions: 'max', labelPosition: 'after' });
@@ -173,7 +173,7 @@ class EasyMotionLineBackward extends EasyMotionWordMoveCommandBase {
 
 @RegisterAction
 class EasyMotionJumpToAnywhereCommand extends EasyMotionWordMoveCommandBase {
-  keys = buildTriggerKeys({ key: 'j', leaderCount: 3 });
+  keys = buildTriggerKeys({ key: 'n', leaderCount: 3 });
 
   constructor() {
     super({ jumpToAnywhere: true, labelPosition: 'after' });
@@ -222,7 +222,7 @@ class EasyMotionEndBackwardCommand extends EasyMotionWordMoveCommandBase {
 
 @RegisterAction
 class EasyMotionStartOfLineForwardsCommand extends EasyMotionLineMoveCommandBase {
-  keys = buildTriggerKeys({ key: 'j' });
+  keys = buildTriggerKeys({ key: 'n' });
 
   constructor() {
     super({ searchOptions: 'min' });
@@ -231,7 +231,7 @@ class EasyMotionStartOfLineForwardsCommand extends EasyMotionLineMoveCommandBase
 
 @RegisterAction
 class EasyMotionStartOfLineBackwordsCommand extends EasyMotionLineMoveCommandBase {
-  keys = buildTriggerKeys({ key: 'k' });
+  keys = buildTriggerKeys({ key: 'e' });
 
   constructor() {
     super({ searchOptions: 'max' });

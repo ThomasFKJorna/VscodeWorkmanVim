@@ -22,10 +22,10 @@ suite('Notation', () => {
       '<space>': ' ',
       '<uP>': '<up>',
       '<Shift+Tab>': '<S-tab>',
-      '<S-j>': 'J',
-      '<S-J>': 'J',
-      '<s-j>': 'J',
-      '<s-J>': 'J',
+      '<S-j>': 'N',
+      '<S-J>': 'N',
+      '<s-j>': 'N',
+      '<s-J>': 'N',
     };
 
     for (const test in testCases) {

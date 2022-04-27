@@ -8,7 +8,7 @@ abstract class SmartQuotes extends MoveQuoteMatch {
 
 @RegisterAction
 export class MoveAroundNextSingleQuotes extends SmartQuotes {
-  keys = ['a', 'n', "'"];
+  keys = ['a', 'j', "'"];
   readonly charToMatch = "'";
   override readonly which = 'next';
   override includeQuotes = true;
@@ -16,7 +16,7 @@ export class MoveAroundNextSingleQuotes extends SmartQuotes {
 
 @RegisterAction
 export class MoveInsideNextSingleQuotes extends SmartQuotes {
-  keys = ['i', 'n', "'"];
+  keys = ['i', 'j', "'"];
   readonly charToMatch = "'";
   override readonly which = 'next';
   override includeQuotes = false;
@@ -24,7 +24,7 @@ export class MoveInsideNextSingleQuotes extends SmartQuotes {
 
 @RegisterAction
 export class MoveAroundLastSingleQuotes extends SmartQuotes {
-  keys = ['a', 'l', "'"];
+  keys = ['a', 'o', "'"];
   readonly charToMatch = "'";
   override readonly which = 'last';
   override includeQuotes = true;
@@ -32,7 +32,7 @@ export class MoveAroundLastSingleQuotes extends SmartQuotes {
 
 @RegisterAction
 export class MoveInsideLastSingleQuotes extends SmartQuotes {
-  keys = ['i', 'l', "'"];
+  keys = ['i', 'o', "'"];
   readonly charToMatch = "'";
   override readonly which = 'last';
   override includeQuotes = false;
@@ -40,7 +40,7 @@ export class MoveInsideLastSingleQuotes extends SmartQuotes {
 
 @RegisterAction
 export class MoveAroundNextDoubleQuotes extends SmartQuotes {
-  keys = ['a', 'n', '"'];
+  keys = ['a', 'j', '"'];
   readonly charToMatch = '"';
   override readonly which = 'next';
   override includeQuotes = true;
@@ -48,7 +48,7 @@ export class MoveAroundNextDoubleQuotes extends SmartQuotes {
 
 @RegisterAction
 export class MoveInsideNextDoubleQuotes extends SmartQuotes {
-  keys = ['i', 'n', '"'];
+  keys = ['i', 'j', '"'];
   readonly charToMatch = '"';
   override readonly which = 'next';
   override includeQuotes = false;
@@ -56,7 +56,7 @@ export class MoveInsideNextDoubleQuotes extends SmartQuotes {
 
 @RegisterAction
 export class MoveAroundLastDoubleQuotes extends SmartQuotes {
-  keys = ['a', 'l', '"'];
+  keys = ['a', 'o', '"'];
   readonly charToMatch = '"';
   override readonly which = 'last';
   override includeQuotes = true;
@@ -64,7 +64,7 @@ export class MoveAroundLastDoubleQuotes extends SmartQuotes {
 
 @RegisterAction
 export class MoveInsideLastDoubleQuotes extends SmartQuotes {
-  keys = ['i', 'l', '"'];
+  keys = ['i', 'o', '"'];
   readonly charToMatch = '"';
   override readonly which = 'last';
   override includeQuotes = false;
@@ -72,7 +72,7 @@ export class MoveInsideLastDoubleQuotes extends SmartQuotes {
 
 @RegisterAction
 export class MoveAroundNextBacktick extends SmartQuotes {
-  keys = ['a', 'n', '`'];
+  keys = ['a', 'j', '`'];
   readonly charToMatch = '`';
   override readonly which = 'next';
   override includeQuotes = true;
@@ -80,7 +80,7 @@ export class MoveAroundNextBacktick extends SmartQuotes {
 
 @RegisterAction
 export class MoveInsideNextBacktick extends SmartQuotes {
-  keys = ['i', 'n', '`'];
+  keys = ['i', 'j', '`'];
   readonly charToMatch = '`';
   override readonly which = 'next';
   override includeQuotes = false;
@@ -88,7 +88,7 @@ export class MoveInsideNextBacktick extends SmartQuotes {
 
 @RegisterAction
 export class MoveAroundLastBacktick extends SmartQuotes {
-  keys = ['a', 'l', '`'];
+  keys = ['a', 'o', '`'];
   readonly charToMatch = '`';
   override readonly which = 'last';
   override includeQuotes = true;
@@ -96,7 +96,7 @@ export class MoveAroundLastBacktick extends SmartQuotes {
 
 @RegisterAction
 export class MoveInsideLastBacktick extends SmartQuotes {
-  keys = ['i', 'l', '`'];
+  keys = ['i', 'o', '`'];
   readonly charToMatch = '`';
   override readonly which = 'last';
   override includeQuotes = false;
@@ -120,7 +120,7 @@ export class MoveInsideQuote extends SmartQuotes {
 
 @RegisterAction
 export class MoveAroundNextQuote extends SmartQuotes {
-  keys = ['a', 'n', 'q'];
+  keys = ['a', 'j', 'q'];
   override readonly which = 'next';
   override readonly anyQuote = true;
   readonly charToMatch = '"'; // it is not in use, because anyQuote is true.
@@ -129,7 +129,7 @@ export class MoveAroundNextQuote extends SmartQuotes {
 
 @RegisterAction
 export class MoveInsideNextQuote extends SmartQuotes {
-  keys = ['i', 'n', 'q'];
+  keys = ['i', 'j', 'q'];
   override readonly which = 'next';
   override readonly anyQuote = true;
   readonly charToMatch = '"'; // it is not in use, because anyQuote is true.
@@ -138,7 +138,7 @@ export class MoveInsideNextQuote extends SmartQuotes {
 
 @RegisterAction
 export class MoveAroundLastQuote extends SmartQuotes {
-  keys = ['a', 'l', 'q'];
+  keys = ['a', 'o', 'q'];
   override readonly which = 'last';
   override readonly anyQuote = true;
   readonly charToMatch = '"'; // it is not in use, because anyQuote is true.
@@ -147,7 +147,7 @@ export class MoveAroundLastQuote extends SmartQuotes {
 
 @RegisterAction
 export class MoveInsideLastQuote extends SmartQuotes {
-  keys = ['i', 'l', 'q'];
+  keys = ['i', 'o', 'q'];
   override readonly which = 'last';
   override readonly anyQuote = true;
   readonly charToMatch = '"'; // it is not in use, because anyQuote is true.

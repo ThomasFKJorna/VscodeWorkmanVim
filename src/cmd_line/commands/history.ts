@@ -21,7 +21,7 @@ const historyTypeParser: Parser<HistoryCommandType> = alt(
   alt(nameAbbrevParser('c', 'md'), string(':')).result(HistoryCommandType.Cmd),
   alt(nameAbbrevParser('s', 'earch'), string('/')).result(HistoryCommandType.Search),
   alt(nameAbbrevParser('e', 'xpr'), string('=')).result(HistoryCommandType.Expr),
-  alt(nameAbbrevParser('i', 'nput'), string('@')).result(HistoryCommandType.Input),
+  alt(nameAbbrevParser('i', 'nput'), string('')).result(HistoryCommandType.Input),
   alt(nameAbbrevParser('d', 'ebug'), string('>')).result(HistoryCommandType.Debug),
   nameAbbrevParser('a', 'll').result(HistoryCommandType.All)
 );

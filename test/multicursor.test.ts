@@ -49,7 +49,7 @@ suite('Multicursor', () => {
 
   test('viwd with multicursors deletes the words and keeps the cursors', async () => {
     await modeHandler.handleMultipleKeyEvents('ifoo dont delete\nbar\ndont foo'.split(''));
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', 'k', 'k', '0']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', 'e', 'e', '0']);
     assertEqualLines(['foo dont delete', 'bar', 'dont foo']);
 
     await modeHandler.handleMultipleKeyEvents(['g', 'b', 'g', 'b', '<Esc>', 'b']);
@@ -64,7 +64,7 @@ suite('Multicursor', () => {
     await modeHandler.handleMultipleKeyEvents(
       'i[(foo) asd ]\n[(bar) asd ]\n[(foo) asd ]'.split('')
     );
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', '0', 'l', 'l']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', '0', 'o', 'o']);
     assertEqualLines(['[(foo) asd ]', '[(bar) asd ]', '[(foo) asd ]']);
 
     await modeHandler.handleMultipleKeyEvents(['g', 'b', 'g', 'b', '<Esc>', 'b']);
@@ -79,7 +79,7 @@ suite('Multicursor', () => {
     await modeHandler.handleMultipleKeyEvents(
       'i[(foo) asd ]\n[(bar) asd ]\n[(foo) asd ]'.split('')
     );
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', '0', 'l', 'l']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', '0', 'o', 'o']);
     assertEqualLines(['[(foo) asd ]', '[(bar) asd ]', '[(foo) asd ]']);
 
     await modeHandler.handleMultipleKeyEvents(['g', 'b', 'g', 'b', '<Esc>', 'b']);
@@ -94,7 +94,7 @@ suite('Multicursor', () => {
     await modeHandler.handleMultipleKeyEvents(
       'i<div> foo bar</div> asd\n<div>foo asd</div>'.split('')
     );
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', 'k', '0', 'W']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', 'e', '0', 'W']);
     assertEqualLines(['<div> foo bar</div> asd', '<div>foo asd</div>']);
 
     await modeHandler.handleMultipleKeyEvents(['g', 'b', 'g', 'b', '<Esc>', 'b']);
@@ -116,7 +116,7 @@ suite('Multicursor', () => {
     title: 'Can use "?" search with multicursors',
     start: ['line 1', 'line 2', 'line 3', 'line 4', 'line |5'],
     keysPressed: '3<C-alt+up>v?ine\nd<Esc>',
-    end: ['line 1', '|l', 'l', 'l', 'l'],
+    end: ['line 1', '|l', 'o', 'o', 'o'],
   });
 });
 
@@ -125,7 +125,7 @@ suite('Multicursor with remaps', () => {
     const configuration = new Configuration();
     configuration.insertModeKeyBindings = [
       {
-        before: ['j', 'j', 'k'],
+        before: ['n', 'n', 'e'],
         after: ['<esc>'],
       },
     ];

@@ -45,7 +45,7 @@ suite('LineRange resolving', () => {
   resolveTest({
     title: 'Marks',
     start: ['one', 'two', 'th|ree', 'four', 'five', 'six'],
-    keysPressed: 'ma' + 'j' + 'mB' + 'j',
+    keysPressed: 'ma' + 'n' + 'mB' + 'n',
     end: ['one', 'two', 'three', 'four', 'fi|ve', 'six'],
     lineRanges: {
       "'a": [2, 2],
@@ -56,7 +56,7 @@ suite('LineRange resolving', () => {
   resolveTest({
     title: 'Last visual selection',
     start: ['one', 'two', 'th|ree', 'four', 'five', 'six'],
-    keysPressed: 'v' + 'j' + 'j' + '<Esc>',
+    keysPressed: 'v' + 'n' + 'n' + '<Esc>',
     end: ['one', 'two', 'three', 'four', 'fi|ve', 'six'],
     lineRanges: {
       // TODO: *,4 is not a valid range

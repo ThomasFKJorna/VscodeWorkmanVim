@@ -85,14 +85,14 @@ suite('Mode Visual', () => {
 
   test('Can do vwd in middle of sentence', async () => {
     await modeHandler.handleMultipleKeyEvents('ione two three foar'.split(''));
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', '^', 'l', 'l', 'l', 'l', 'v', 'w', 'd']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', '^', 'o', 'o', 'o', 'o', 'v', 'w', 'd']);
 
     assertEqualLines(['one hree foar']);
   });
 
   test('Can do vwd in middle of sentence', async () => {
     await modeHandler.handleMultipleKeyEvents('ione two three'.split(''));
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', '^', 'l', 'l', 'l', 'l', 'v', 'w', 'd']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', '^', 'o', 'o', 'o', 'o', 'v', 'w', 'd']);
 
     assertEqualLines(['one hree']);
   });
@@ -121,10 +121,10 @@ suite('Mode Visual', () => {
     await modeHandler.handleMultipleKeyEvents([
       '<Esc>',
       '^',
-      'l',
-      'l',
-      'l',
-      'l',
+      'o',
+      'o',
+      'o',
+      'o',
       'v',
       'w',
       'b',
@@ -151,7 +151,7 @@ suite('Mode Visual', () => {
 
   test('handles case where we delete over a newline', async () => {
     await modeHandler.handleMultipleKeyEvents('ione two\n\nthree four'.split(''));
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', '0', 'k', 'k', 'v', '}', 'd']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', '0', 'e', 'e', 'v', '}', 'd']);
 
     assertEqualLines(['three four']);
   });
@@ -168,7 +168,7 @@ suite('Mode Visual', () => {
     test('delete through eol', async () => {
       await modeHandler.handleMultipleKeyEvents('ione\ntwo'.split(''));
 
-      await modeHandler.handleMultipleKeyEvents(['<Esc>', '^', 'g', 'g', 'v', 'l', 'l', 'l', 'd']);
+      await modeHandler.handleMultipleKeyEvents(['<Esc>', '^', 'g', 'g', 'v', 'o', 'o', 'o', 'd']);
 
       assertEqualLines(['two']);
     });
@@ -176,7 +176,7 @@ suite('Mode Visual', () => {
     test('join 2 lines by deleting through eol', async () => {
       await modeHandler.handleMultipleKeyEvents('ione\ntwo'.split(''));
 
-      await modeHandler.handleMultipleKeyEvents(['<Esc>', 'g', 'g', 'l', 'v', 'l', 'l', 'd']);
+      await modeHandler.handleMultipleKeyEvents(['<Esc>', 'g', 'g', 'o', 'v', 'o', 'o', 'd']);
 
       assertEqualLines(['otwo']);
     });
@@ -500,7 +500,7 @@ suite('Mode Visual', () => {
     });
 
     newTest({
-      title: "Can handle 'Y' in visual mode",
+      title: "Can handle 'H' in visual mode",
       start: ['one', '|two'],
       keysPressed: 'vwYP',
       end: ['one', '|two', 'two'],
@@ -1313,7 +1313,7 @@ suite('Mode Visual', () => {
       await modeHandler.handleMultipleKeyEvents('ifoo\nhello world\nhello\nhello'.split(''));
       await modeHandler.handleMultipleKeyEvents(['<Esc>', ...'/hello\n'.split('')]);
       await modeHandler.handleMultipleKeyEvents('ggv'.split(''));
-      await modeHandler.handleMultipleKeyEvents(['g', 'n']);
+      await modeHandler.handleMultipleKeyEvents(['g', 'j']);
 
       assert.strictEqual(modeHandler.currentMode, Mode.Visual);
 
@@ -1328,7 +1328,7 @@ suite('Mode Visual', () => {
       await modeHandler.handleMultipleKeyEvents('ifoo\nhello world\nhello\nhello'.split(''));
       await modeHandler.handleMultipleKeyEvents(['<Esc>', ...'/hello\n'.split('')]);
       await modeHandler.handleMultipleKeyEvents('2ggv'.split(''));
-      await modeHandler.handleMultipleKeyEvents(['g', 'n']);
+      await modeHandler.handleMultipleKeyEvents(['g', 'j']);
 
       assert.strictEqual(modeHandler.currentMode, Mode.Visual);
 
@@ -1343,7 +1343,7 @@ suite('Mode Visual', () => {
       await modeHandler.handleMultipleKeyEvents('ifoo\nhello world\nhello\nhello'.split(''));
       await modeHandler.handleMultipleKeyEvents(['<Esc>', ...'/hello\n'.split('')]);
       await modeHandler.handleMultipleKeyEvents('2gglv'.split(''));
-      await modeHandler.handleMultipleKeyEvents(['g', 'n']);
+      await modeHandler.handleMultipleKeyEvents(['g', 'j']);
 
       assert.strictEqual(modeHandler.currentMode, Mode.Visual);
 
@@ -1358,7 +1358,7 @@ suite('Mode Visual', () => {
       await modeHandler.handleMultipleKeyEvents('ifoo\nhello world\nhello\nhello'.split(''));
       await modeHandler.handleMultipleKeyEvents(['<Esc>', ...'/hello\n'.split('')]);
       await modeHandler.handleMultipleKeyEvents('2ggehv'.split(''));
-      await modeHandler.handleMultipleKeyEvents(['g', 'n']);
+      await modeHandler.handleMultipleKeyEvents(['g', 'j']);
 
       assert.strictEqual(modeHandler.currentMode, Mode.Visual);
 
@@ -1373,7 +1373,7 @@ suite('Mode Visual', () => {
       await modeHandler.handleMultipleKeyEvents('ifoo\nhello world\nhello\nhello'.split(''));
       await modeHandler.handleMultipleKeyEvents(['<Esc>', ...'/hello\n'.split('')]);
       await modeHandler.handleMultipleKeyEvents('2ggev'.split(''));
-      await modeHandler.handleMultipleKeyEvents(['g', 'n']);
+      await modeHandler.handleMultipleKeyEvents(['g', 'j']);
 
       assert.strictEqual(modeHandler.currentMode, Mode.Visual);
 
@@ -1388,7 +1388,7 @@ suite('Mode Visual', () => {
       await modeHandler.handleMultipleKeyEvents('ifoo\nhello world\nhello\nhello'.split(''));
       await modeHandler.handleMultipleKeyEvents(['<Esc>', ...'/hello\n'.split('')]);
       await modeHandler.handleMultipleKeyEvents('2ggelv'.split(''));
-      await modeHandler.handleMultipleKeyEvents(['g', 'n']);
+      await modeHandler.handleMultipleKeyEvents(['g', 'j']);
 
       assert.strictEqual(modeHandler.currentMode, Mode.Visual);
 
@@ -1515,7 +1515,7 @@ suite('Mode Visual', () => {
   });
 
   newTest({
-    title: "Can handle 'J' when the selected area spans multiple lines",
+    title: "Can handle 'N' when the selected area spans multiple lines",
     start: ['o|ne', 'two', 'three', 'four'],
     keysPressed: 'vjjJ',
     end: ['one two| three', 'four'],

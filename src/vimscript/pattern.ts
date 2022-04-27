@@ -217,7 +217,7 @@ export class Pattern {
             } else if (escaped === '<' || escaped === '>') {
               // TODO: not QUITE the same
               return '\\b';
-            } else if (escaped === 'n') {
+            } else if (escaped === 'j') {
               return '\\r?\\n';
             }
             return '\\' + escaped;

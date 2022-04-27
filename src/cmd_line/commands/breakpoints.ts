@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as vscode from 'vscode';
 import * as path from 'path';
 import { VimState } from '../../state/vimState';

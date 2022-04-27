@@ -24,7 +24,7 @@ class CommandQuit extends BaseCommand {
 class CommandOnly extends BaseCommand {
   modes = [Mode.Normal];
   keys = [
-    ['<C-w>', 'o'],
+    ['<C-w>', 'l'],
     ['<C-w>', '<C-o>'],
   ];
 
@@ -37,7 +37,7 @@ class CommandOnly extends BaseCommand {
 class MoveToRightPane extends BaseCommand {
   modes = [Mode.Normal, Mode.Visual, Mode.VisualLine];
   keys = [
-    ['<C-w>', 'l'],
+    ['<C-w>', 'o'],
     ['<C-w>', '<right>'],
     ['<C-w>', '<C-l>'],
   ];
@@ -55,7 +55,7 @@ class MoveToRightPane extends BaseCommand {
 class MoveToLowerPane extends BaseCommand {
   modes = [Mode.Normal, Mode.Visual, Mode.VisualLine];
   keys = [
-    ['<C-w>', 'j'],
+    ['<C-w>', 'n'],
     ['<C-w>', '<down>'],
     ['<C-w>', '<C-j>'],
   ];
@@ -73,7 +73,7 @@ class MoveToLowerPane extends BaseCommand {
 class MoveToUpperPane extends BaseCommand {
   modes = [Mode.Normal, Mode.Visual, Mode.VisualLine];
   keys = [
-    ['<C-w>', 'k'],
+    ['<C-w>', 'e'],
     ['<C-w>', '<up>'],
     ['<C-w>', '<C-k>'],
   ];
@@ -91,7 +91,7 @@ class MoveToUpperPane extends BaseCommand {
 class MoveToLeftPane extends BaseCommand {
   modes = [Mode.Normal, Mode.Visual, Mode.VisualLine];
   keys = [
-    ['<C-w>', 'h'],
+    ['<C-w>', 'y'],
     ['<C-w>', '<left>'],
     ['<C-w>', '<C-h>'],
   ];

@@ -365,7 +365,7 @@ export class CommandQuitRecordMacro extends BaseCommand {
 @RegisterAction
 class CommandExecuteLastMacro extends BaseCommand {
   modes = [Mode.Normal, Mode.Visual, Mode.VisualLine];
-  keys = ['@', '@'];
+  keys = ['', ''];
   override runsOnceForEachCountPrefix = true;
   override createsUndoPoint = true;
   override isJump = true;
@@ -388,7 +388,7 @@ class CommandExecuteLastMacro extends BaseCommand {
 @RegisterAction
 class CommandExecuteMacro extends BaseCommand {
   modes = [Mode.Normal, Mode.Visual, Mode.VisualLine];
-  keys = ['@', '<character>'];
+  keys = ['', '<character>'];
   override runsOnceForEachCountPrefix = true;
   override createsUndoPoint = true;
 
@@ -725,7 +725,7 @@ class CommandRepeatSubstitution extends BaseCommand {
 @RegisterAction
 class CommandGoToOtherEndOfHighlightedText extends BaseCommand {
   modes = [Mode.Visual, Mode.VisualLine, Mode.VisualBlock];
-  keys = ['o'];
+  keys = ['l'];
   override isJump = true;
 
   public override async exec(position: Position, vimState: VimState): Promise<void> {
@@ -739,7 +739,7 @@ class CommandGoToOtherEndOfHighlightedText extends BaseCommand {
 @RegisterAction
 class CommandGoToOtherSideOfHighlightedText extends BaseCommand {
   modes = [Mode.Visual, Mode.VisualLine, Mode.VisualBlock];
-  keys = ['O'];
+  keys = ['L'];
   override isJump = true;
 
   public override async exec(position: Position, vimState: VimState): Promise<void> {
@@ -842,7 +842,7 @@ class CommandDeleteToLineEnd extends BaseCommand {
 @RegisterAction
 export class CommandYankFullLine extends BaseCommand {
   modes = [Mode.Normal];
-  keys = ['Y'];
+  keys = ['H'];
 
   public override async exec(position: Position, vimState: VimState): Promise<void> {
     const linesDown = (vimState.recordedState.count || 1) - 1;
@@ -1152,7 +1152,7 @@ export class CommandInsertAtLineEnd extends BaseCommand {
 @RegisterAction
 export class CommandInsertNewLineAbove extends BaseCommand {
   modes = [Mode.Normal];
-  keys = ['O'];
+  keys = ['L'];
   override runsOnceForEveryCursor() {
     return false;
   }
@@ -1203,7 +1203,7 @@ export class CommandInsertNewLineAbove extends BaseCommand {
 @RegisterAction
 export class CommandInsertNewLineBefore extends BaseCommand {
   modes = [Mode.Normal];
-  keys = ['o'];
+  keys = ['l'];
   override runsOnceForEveryCursor() {
     return false;
   }
@@ -1377,7 +1377,7 @@ export class ActionDeleteLastChar extends BaseCommand {
 @RegisterAction
 class ActionJoin extends BaseCommand {
   modes = [Mode.Normal];
-  keys = ['J'];
+  keys = ['N'];
   override createsUndoPoint = true;
   override runsOnceForEachCountPrefix = false;
 
@@ -1533,7 +1533,7 @@ class ActionJoin extends BaseCommand {
 @RegisterAction
 class ActionJoinVisualMode extends BaseCommand {
   modes = [Mode.Visual, Mode.VisualLine];
-  keys = ['J'];
+  keys = ['N'];
 
   public override async exec(position: Position, vimState: VimState): Promise<void> {
     const [start, end] = sorted(vimState.editor.selection.start, vimState.editor.selection.end);
@@ -1549,7 +1549,7 @@ class ActionJoinVisualMode extends BaseCommand {
 @RegisterAction
 class ActionJoinVisualBlockMode extends BaseCommand {
   modes = [Mode.VisualBlock];
-  keys = ['J'];
+  keys = ['N'];
 
   public override async exec(position: Position, vimState: VimState): Promise<void> {
     const [start, end] = sorted(vimState.cursorStartPosition, vimState.cursorStopPosition);
@@ -1562,7 +1562,7 @@ class ActionJoinVisualBlockMode extends BaseCommand {
 @RegisterAction
 class ActionJoinNoWhitespace extends BaseCommand {
   modes = [Mode.Normal];
-  keys = ['g', 'J'];
+  keys = ['g', 'N'];
   override createsUndoPoint = true;
 
   // gJ is essentially J without the edge cases. ;-)
@@ -1602,7 +1602,7 @@ class ActionJoinNoWhitespace extends BaseCommand {
 @RegisterAction
 class ActionJoinNoWhitespaceVisualMode extends BaseCommand {
   modes = [Mode.Visual, Mode.VisualLine, Mode.VisualBlock];
-  keys = ['g', 'J'];
+  keys = ['g', 'N'];
 
   public override async exec(position: Position, vimState: VimState): Promise<void> {
     const [start, end] = sorted(vimState.cursorStartPosition, vimState.cursorStopPosition);
@@ -2403,7 +2403,7 @@ export class CommandUnicodeName extends BaseCommand {
 @RegisterAction
 class ActionTriggerHover extends BaseCommand {
   modes = [Mode.Normal];
-  keys = ['g', 'h'];
+  keys = ['g', 'y'];
   override runsOnceForEveryCursor() {
     return false;
   }
@@ -2591,7 +2591,7 @@ class ActionGoToAlternateFile extends BaseCommand {
 @RegisterAction
 class ShowFileOutline extends BaseCommand {
   modes = [Mode.Normal];
-  keys = ['g', 'O'];
+  keys = ['g', 'L'];
 
   override runsOnceForEveryCursor() {
     return false;

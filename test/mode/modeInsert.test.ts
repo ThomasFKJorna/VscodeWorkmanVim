@@ -24,7 +24,7 @@ suite('Mode Insert', () => {
   teardown(cleanUpWorkspace);
 
   test('can be activated', async () => {
-    const activationKeys = ['o', 'I', 'i', 'O', 'a', 'A', '<Insert>'];
+    const activationKeys = ['l', 'I', 'i', 'L', 'a', 'A', '<Insert>'];
 
     for (const key of activationKeys) {
       await modeHandler.handleKeyEvent('<Esc>');
@@ -42,7 +42,7 @@ suite('Mode Insert', () => {
   });
 
   test('<Esc> should change cursor position', async () => {
-    await modeHandler.handleMultipleKeyEvents(['i', 'h', 'e', 'l', 'l', 'o', '<Esc>']);
+    await modeHandler.handleMultipleKeyEvents(['i', 'y', 'e', 'o', 'o', 'l', '<Esc>']);
 
     assert.strictEqual(
       vscode.window.activeTextEditor!.selection.start.character,
@@ -52,7 +52,7 @@ suite('Mode Insert', () => {
   });
 
   test('<C-c> can exit insert', async () => {
-    await modeHandler.handleMultipleKeyEvents(['i', 't', 'e', 'x', 't', '<C-c>', 'o']);
+    await modeHandler.handleMultipleKeyEvents(['i', 't', 'e', 'x', 't', '<C-c>', 'l']);
 
     return assertEqualLines(['text', '']);
   });
@@ -73,7 +73,7 @@ suite('Mode Insert', () => {
   });
 
   test('<Esc> can exit insert', async () => {
-    await modeHandler.handleMultipleKeyEvents(['i', 't', 'e', 'x', 't', '<Esc>', 'o']);
+    await modeHandler.handleMultipleKeyEvents(['i', 't', 'e', 'x', 't', '<Esc>', 'l']);
 
     return assertEqualLines(['text', '']);
   });
@@ -86,8 +86,8 @@ suite('Mode Insert', () => {
     }
   });
 
-  test("Can handle 'O'", async () => {
-    await modeHandler.handleMultipleKeyEvents(['i', 't', 'e', 'x', 't', '<Esc>', 'O']);
+  test("Can handle 'L'", async () => {
+    await modeHandler.handleMultipleKeyEvents(['i', 't', 'e', 'x', 't', '<Esc>', 'L']);
 
     return assertEqualLines(['', 'text']);
   });
@@ -203,13 +203,13 @@ suite('Mode Insert', () => {
   test('Correctly places the cursor after deleting the previous line break', async () => {
     await modeHandler.handleMultipleKeyEvents([
       'i',
-      'o',
-      'n',
+      'l',
+      'j',
       'e',
       '\n',
       't',
       'w',
-      'o',
+      'l',
       '<left>',
       '<left>',
       '<left>',
@@ -397,14 +397,14 @@ suite('Mode Insert', () => {
   });
 
   newTest({
-    title: "Can handle 'o' with count",
+    title: "Can handle 'l' with count",
     start: ['|foobar'],
     keysPressed: '5ofun<Esc>',
     end: ['foobar', 'fu|n', 'fun', 'fun', 'fun', 'fun'],
   });
 
   newTest({
-    title: "Can handle 'O' with count",
+    title: "Can handle 'L' with count",
     start: ['|foobar'],
     keysPressed: '5Ofun<Esc>',
     end: ['fun', 'fun', 'fun', 'fun', 'fu|n', 'foobar'],

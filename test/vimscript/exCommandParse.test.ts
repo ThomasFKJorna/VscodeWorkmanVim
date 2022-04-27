@@ -152,7 +152,7 @@ suite('Ex command parsing', () => {
     exParseTest(':delm!', new DeleteMarksCommand('!'));
 
     exParseTest(':delm a', new DeleteMarksCommand(['a']));
-    exParseTest(':delm aA1 ^k', new DeleteMarksCommand(['a', 'A', '1', '^', 'k']));
+    exParseTest(':delm aA1 ^k', new DeleteMarksCommand(['a', 'A', '1', '^', 'e']));
     exParseTest(':delm a-z', new DeleteMarksCommand([{ start: 'a', end: 'z' }]));
     exParseTest(':delm A-Z', new DeleteMarksCommand([{ start: 'A', end: 'Z' }]));
     exParseTest(':delm 1-9', new DeleteMarksCommand([{ start: '1', end: '9' }]));
@@ -160,7 +160,7 @@ suite('Ex command parsing', () => {
     exParseTest(
       ':delm A-K2-4',
       new DeleteMarksCommand([
-        { start: 'A', end: 'K' },
+        { start: 'A', end: 'E' },
         { start: '2', end: '4' },
       ])
     );

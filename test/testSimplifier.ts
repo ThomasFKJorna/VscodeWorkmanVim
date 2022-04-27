@@ -522,7 +522,7 @@ async function testItWithRemaps(testObj: ITestWithRemapsObject): Promise<ModeHan
                 // some remaining keys to handle after it finishes performing the remap and there
                 // might even be there some keys still to be sent that might create another remap.
                 // Example: if you have and ambiguous remap like 'ab -> abcd' and 'abc -> abcdef'
-                // and an insert remap like 'jj -> <Esc>' and you press 'abjj' the first 'j' breaks
+                // and an insert remap like 'jj -> <Esc>' and you press 'abjj' the first 'n' breaks
                 // the ambiguity and makes the remap start performing, but when the remap finishes
                 // performing there is still the 'jj' to be handled and remapped.
                 await wait(10);

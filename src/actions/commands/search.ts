@@ -301,12 +301,12 @@ abstract class SearchObject extends TextObject {
 
 @RegisterAction
 class SearchObjectForward extends SearchObject {
-  keys = ['g', 'n'];
+  keys = ['g', 'j'];
   direction = SearchDirection.Forward;
 }
 
 @RegisterAction
 class SearchObjectBackward extends SearchObject {
-  keys = ['g', 'N'];
+  keys = ['g', 'J'];
   direction = SearchDirection.Backward;
 }

@@ -26,7 +26,7 @@ suite('Provide line completions', () => {
     await vimState.editor.edit((builder) => {
       builder.insert(new Position(0, 0), lines.join('\n'));
     });
-    await modeHandler.handleMultipleKeyEvents(['<Esc>', 'g', 'g', 'j', 'j', 'A']);
+    await modeHandler.handleMultipleKeyEvents(['<Esc>', 'g', 'g', 'n', 'n', 'A']);
   };
 
   suite('Line Completion Provider unit tests', () => {

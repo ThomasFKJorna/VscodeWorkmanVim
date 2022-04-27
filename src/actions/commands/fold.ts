@@ -1,7 +1,7 @@
-import { Position } from "vscode";
-import { Mode } from "../../mode/mode";
-import { VimState } from "../../state/vimState";
-import { BaseCommand, RegisterAction } from "../base";
+import { Position } from 'vscode';
+import { Mode } from '../../mode/mode';
+import { VimState } from '../../state/vimState';
+import { BaseCommand, RegisterAction } from '../base';
 
 type FoldDirection = 'up' | 'down' | undefined;
 abstract class CommandFold extends BaseCommand {
@@ -48,7 +48,7 @@ class CommandCloseAllFolds extends CommandFold {
 
 @RegisterAction
 class CommandOpenFold extends CommandFold {
-  keys = ['z', 'o'];
+  keys = ['z', 'l'];
   commandName = 'editor.unfold';
   override direction: FoldDirection = 'down';
 }
@@ -69,6 +69,6 @@ class CommandCloseAllFoldsRecursively extends CommandFold {
 @RegisterAction
 class CommandOpenAllFoldsRecursively extends CommandFold {
   override modes = [Mode.Normal];
-  keys = ['z', 'O'];
+  keys = ['z', 'L'];
   commandName = 'editor.unfoldRecursively';
 }

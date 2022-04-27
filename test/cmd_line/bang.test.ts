@@ -46,14 +46,14 @@ suite('bang (!) cmd_line', () => {
   suite('previous external commands (embedded bangs)', () => {
     test('!! should execute previous command', async () => {
       await modeHandler.handleMultipleKeyEvents(':.! echo hello world\n'.split(''));
-      await modeHandler.handleMultipleKeyEvents(['o', '<Esc>']);
+      await modeHandler.handleMultipleKeyEvents(['l', '<Esc>']);
       await modeHandler.handleMultipleKeyEvents(':.!!\n'.split(''));
       assertEqualLines(['hello world', 'hello world']);
     });
 
     test('!! should support command concatenation', async () => {
       await modeHandler.handleMultipleKeyEvents(':.! echo hello world\n'.split(''));
-      await modeHandler.handleMultipleKeyEvents(['o', '<Esc>']);
+      await modeHandler.handleMultipleKeyEvents(['l', '<Esc>']);
       await modeHandler.handleMultipleKeyEvents(':.!! world\n'.split(''));
       assertEqualLines(['hello world', 'hello world world']);
     });

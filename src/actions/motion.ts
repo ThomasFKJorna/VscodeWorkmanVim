@@ -31,7 +31,7 @@ import { useSmartQuotes } from './plugins/targets/targetsConfig';
 import { ModeDataFor } from '../mode/modeData';
 
 /**
- * A movement is something like 'h', 'k', 'w', 'b', 'gg', etc.
+ * A movement is something like 'y', 'e', 'w', 'b', 'gg', etc.
  */
 
 export abstract class ExpandingSelection extends BaseMovement {
@@ -290,7 +290,7 @@ class MoveDownFoldFix extends MoveByScreenLineMaintainDesiredColumn {
 
 @RegisterAction
 class MoveDown extends BaseMovement {
-  keys = [['j'], ['<down>'], ['<C-j>'], ['<C-n>']];
+  keys = [['n'], ['<down>'], ['<C-j>'], ['<C-n>']];
   override preservesDesiredColumn = true;
 
   public override async execAction(
@@ -331,7 +331,7 @@ class MoveDown extends BaseMovement {
 
 @RegisterAction
 class MoveUp extends BaseMovement {
-  keys = [['k'], ['<up>'], ['<C-p>']];
+  keys = [['e'], ['<up>'], ['<C-p>']];
   override preservesDesiredColumn = true;
 
   public override async execAction(
@@ -480,7 +480,7 @@ class ArrowsInReplaceMode extends BaseMovement {
 
 @RegisterAction
 class CommandNextSearchMatch extends BaseMovement {
-  keys = ['n'];
+  keys = ['j'];
   override isJump = true;
 
   public override async execAction(
@@ -535,7 +535,7 @@ class CommandNextSearchMatch extends BaseMovement {
 
 @RegisterAction
 class CommandPreviousSearchMatch extends BaseMovement {
-  keys = ['N'];
+  keys = ['J'];
   override isJump = true;
 
   public override async execAction(
@@ -713,7 +713,7 @@ async function ensureEditorIsActive(document: vscode.TextDocument) {
 
 @RegisterAction
 class MoveLeft extends BaseMovement {
-  keys = [['h'], ['<left>'], ['<BS>'], ['<C-BS>'], ['<S-BS>']];
+  keys = [['y'], ['<left>'], ['<BS>'], ['<C-BS>'], ['<S-BS>']];
 
   public override async execAction(position: Position, vimState: VimState): Promise<Position> {
     const getLeftWhile = (p: Position): Position => {
@@ -741,7 +741,7 @@ class MoveLeft extends BaseMovement {
 
 @RegisterAction
 class MoveRight extends BaseMovement {
-  keys = [['l'], ['<right>'], [' ']];
+  keys = [['o'], ['<right>'], [' ']];
 
   public override async execAction(position: Position, vimState: VimState): Promise<Position> {
     const getRightWhile = (p: Position): Position => {
@@ -1131,7 +1131,7 @@ class MoveScreenLineCenter extends MoveByScreenLine {
 class MoveUpByDisplayLine extends MoveByScreenLine {
   override modes = [Mode.Normal, Mode.Visual];
   keys = [
-    ['g', 'k'],
+    ['g', 'e'],
     ['g', '<up>'],
   ];
   movementType: CursorMovePosition = 'up';
@@ -1143,7 +1143,7 @@ class MoveUpByDisplayLine extends MoveByScreenLine {
 class MoveDownByDisplayLine extends MoveByScreenLine {
   override modes = [Mode.Normal, Mode.Visual];
   keys = [
-    ['g', 'j'],
+    ['g', 'n'],
     ['g', '<down>'],
   ];
   movementType: CursorMovePosition = 'down';
@@ -1160,7 +1160,7 @@ class MoveDownByDisplayLine extends MoveByScreenLine {
 class MoveUpByScreenLineVisualLine extends MoveByScreenLine {
   override modes = [Mode.VisualLine];
   keys = [
-    ['g', 'k'],
+    ['g', 'e'],
     ['g', '<up>'],
   ];
   movementType: CursorMovePosition = 'up';
@@ -1172,7 +1172,7 @@ class MoveUpByScreenLineVisualLine extends MoveByScreenLine {
 class MoveDownByScreenLineVisualLine extends MoveByScreenLine {
   override modes = [Mode.VisualLine];
   keys = [
-    ['g', 'j'],
+    ['g', 'n'],
     ['g', '<down>'],
   ];
   movementType: CursorMovePosition = 'down';
@@ -1184,7 +1184,7 @@ class MoveDownByScreenLineVisualLine extends MoveByScreenLine {
 class MoveUpByScreenLineVisualBlock extends BaseMovement {
   override modes = [Mode.VisualBlock];
   keys = [
-    ['g', 'k'],
+    ['g', 'e'],
     ['g', '<up>'],
   ];
   override preservesDesiredColumn = true;
@@ -1213,7 +1213,7 @@ class MoveUpByScreenLineVisualBlock extends BaseMovement {
 class MoveDownByScreenLineVisualBlock extends BaseMovement {
   override modes = [Mode.VisualBlock];
   keys = [
-    ['g', 'j'],
+    ['g', 'n'],
     ['g', '<down>'],
   ];
   override preservesDesiredColumn = true;
@@ -1241,7 +1241,7 @@ class MoveDownByScreenLineVisualBlock extends BaseMovement {
 @RegisterAction
 class MoveScreenToRight extends MoveByScreenLine {
   override modes = [Mode.Normal, Mode.Visual, Mode.VisualLine, Mode.VisualBlock];
-  keys = ['z', 'h'];
+  keys = ['z', 'y'];
   movementType: CursorMovePosition = 'right';
   override by: CursorMoveByUnit = 'character';
   override value = 1;
@@ -1257,7 +1257,7 @@ class MoveScreenToRight extends MoveByScreenLine {
 @RegisterAction
 class MoveScreenToLeft extends MoveByScreenLine {
   override modes = [Mode.Normal, Mode.Visual, Mode.VisualLine, Mode.VisualBlock];
-  keys = ['z', 'l'];
+  keys = ['z', 'o'];
   movementType: CursorMovePosition = 'left';
   override by: CursorMoveByUnit = 'character';
   override value = 1;
@@ -1273,7 +1273,7 @@ class MoveScreenToLeft extends MoveByScreenLine {
 @RegisterAction
 class MoveScreenToRightHalf extends MoveByScreenLine {
   override modes = [Mode.Normal, Mode.Visual, Mode.VisualLine, Mode.VisualBlock];
-  keys = ['z', 'H'];
+  keys = ['z', 'Y'];
   movementType: CursorMovePosition = 'right';
   override by: CursorMoveByUnit = 'halfLine';
   override value = 1;
@@ -1289,7 +1289,7 @@ class MoveScreenToRightHalf extends MoveByScreenLine {
 @RegisterAction
 class MoveScreenToLeftHalf extends MoveByScreenLine {
   override modes = [Mode.Normal, Mode.Visual, Mode.VisualLine, Mode.VisualBlock];
-  keys = ['z', 'L'];
+  keys = ['z', 'O'];
   movementType: CursorMovePosition = 'left';
   override by: CursorMoveByUnit = 'halfLine';
   override value = 1;
@@ -1305,7 +1305,7 @@ class MoveScreenToLeftHalf extends MoveByScreenLine {
 
 @RegisterAction
 class MoveToLineFromViewPortTop extends MoveByScreenLine {
-  keys = ['H'];
+  keys = ['Y'];
   movementType: CursorMovePosition = 'viewPortTop';
   override by: CursorMoveByUnit = 'line';
   override value = 1;
@@ -1314,7 +1314,7 @@ class MoveToLineFromViewPortTop extends MoveByScreenLine {
 
 @RegisterAction
 class MoveToLineFromViewPortBottom extends MoveByScreenLine {
-  keys = ['L'];
+  keys = ['O'];
   movementType: CursorMovePosition = 'viewPortBottom';
   override by: CursorMoveByUnit = 'line';
   override value = 1;
@@ -1580,7 +1580,7 @@ class MovePreviousSentenceBegin extends BaseMovement {
 
 @RegisterAction
 class GoToOffset extends BaseMovement {
-  keys = ['g', 'o'];
+  keys = ['g', 'l'];
   override isJump = true;
 
   public override async execActionWithCount(position: Position, vimState: VimState, count: number) {

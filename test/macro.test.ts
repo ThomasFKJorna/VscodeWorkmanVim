@@ -46,7 +46,7 @@ suite('Record and execute a macro', () => {
   newTest({
     title: 'Repeat insertion with arrow keys and <BS>',
     start: ['o|ne two three', 'four five six'],
-    keysPressed: 'qk' + 'A' + ' tpyo' + '<left><BS><left>y' + '<Esc>' + 'q' + 'j0' + '@k',
+    keysPressed: 'qk' + 'A' + ' tpyo' + '<left><BS><left>y' + '<Esc>' + 'q' + 'j0' + 'k',
     end: ['one two three typo', 'four five six t|ypo'],
   });
 
@@ -74,14 +74,14 @@ suite('Record and execute a macro', () => {
   newTest({
     title: 'Can handle calling a non existing macro',
     start: ['1. |one', '2. two', '3. three', '4. four'],
-    keysPressed: '@x',
+    keysPressed: 'x',
     end: ['1. |one', '2. two', '3. three', '4. four'],
   });
 
   newTest({
     title: 'Can handle calling a non existing macro with uppercase letter',
     start: ['1. |one', '2. two', '3. three', '4. four'],
-    keysPressed: '@Z',
+    keysPressed: 'Z',
     end: ['1. |one', '2. two', '3. three', '4. four'],
   });
 
@@ -109,7 +109,7 @@ suite('Record and execute a macro', () => {
   newTest({
     title: ': (command) register can be used as a macro to repeat :d',
     start: ['one', 't|wo', 'three', 'four', 'five'],
-    keysPressed: ':d/\n' + '@:' + '@@',
+    keysPressed: ':d/\n' + ':' + '@',
     end: ['one', '|five'],
   });
 
@@ -156,7 +156,7 @@ suite('Record and execute a macro', () => {
   newTest({
     title: 'Invalid register throws E354',
     start: ['one t|wo three'],
-    keysPressed: '@~',
+    keysPressed: '~',
     end: ['one t|wo three'],
     statusBar: "E354: Invalid register name: '~'",
   });
@@ -174,7 +174,7 @@ suite('Record and execute a macro', () => {
   newTest({
     title: '`@@` before a macro has been run throws E748',
     start: ['one t|wo three'],
-    keysPressed: '@@',
+    keysPressed: '@',
     end: ['one t|wo three'],
     statusBar: 'E748: No previously used register',
   });

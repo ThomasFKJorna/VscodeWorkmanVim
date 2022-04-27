@@ -1599,9 +1599,9 @@ suite('Mode Normal', () => {
   });
 
   newTest({
-    title: "Can handle 'yy' without changing cursor position",
+    title: "Can handle 'hh' without changing cursor position",
     start: ['one', 'tw|o'],
-    keysPressed: 'yy',
+    keysPressed: 'hh',
     end: ['one', 'tw|o'],
   });
 
@@ -3128,7 +3128,7 @@ suite('Mode Normal', () => {
       await modeHandler.handleMultipleKeyEvents('ifoo\nhello world\nhello\nhello'.split(''));
       await modeHandler.handleMultipleKeyEvents(['<Esc>', ...'/hello\n'.split('')]);
       await modeHandler.handleMultipleKeyEvents('gg'.split(''));
-      await modeHandler.handleMultipleKeyEvents(['g', 'n']);
+      await modeHandler.handleMultipleKeyEvents(['g', 'j']);
 
       assert.strictEqual(modeHandler.currentMode, Mode.Visual);
 
@@ -3143,7 +3143,7 @@ suite('Mode Normal', () => {
       await modeHandler.handleMultipleKeyEvents('ifoo\nhello world\nhello\nhello'.split(''));
       await modeHandler.handleMultipleKeyEvents(['<Esc>', ...'/hello\n'.split('')]);
       await modeHandler.handleMultipleKeyEvents(jumpCmd.split(''));
-      await modeHandler.handleMultipleKeyEvents(['g', 'n']);
+      await modeHandler.handleMultipleKeyEvents(['g', 'j']);
 
       assert.strictEqual(modeHandler.currentMode, Mode.Visual);
 
@@ -3174,7 +3174,7 @@ suite('Mode Normal', () => {
       await modeHandler.handleMultipleKeyEvents('ifoo\nhello world\nhello\nhello'.split(''));
       await modeHandler.handleMultipleKeyEvents(['<Esc>', ...'/hello\n'.split('')]);
       await modeHandler.handleMultipleKeyEvents('2ggel'.split(''));
-      await modeHandler.handleMultipleKeyEvents(['g', 'n']);
+      await modeHandler.handleMultipleKeyEvents(['g', 'j']);
 
       assert.strictEqual(modeHandler.currentMode, Mode.Visual);
 
@@ -3308,7 +3308,7 @@ suite('Mode Normal', () => {
       await modeHandler.handleMultipleKeyEvents('ihello world\nhello\nhi hello\nfoo'.split(''));
       await modeHandler.handleMultipleKeyEvents(['<Esc>', ...'/hello\n'.split('')]);
       await modeHandler.handleMultipleKeyEvents(['G']);
-      await modeHandler.handleMultipleKeyEvents(['g', 'N']);
+      await modeHandler.handleMultipleKeyEvents(['g', 'J']);
 
       assert.strictEqual(modeHandler.currentMode, Mode.Visual);
 
@@ -3323,7 +3323,7 @@ suite('Mode Normal', () => {
       await modeHandler.handleMultipleKeyEvents('ihello world\nhello\nhi hello\nfoo'.split(''));
       await modeHandler.handleMultipleKeyEvents(['<Esc>', ...'/hello\n'.split('')]);
       await modeHandler.handleMultipleKeyEvents(jumpCmd.split(''));
-      await modeHandler.handleMultipleKeyEvents(['g', 'N']);
+      await modeHandler.handleMultipleKeyEvents(['g', 'J']);
 
       assert.strictEqual(modeHandler.currentMode, Mode.Visual);
 
@@ -3354,7 +3354,7 @@ suite('Mode Normal', () => {
       await modeHandler.handleMultipleKeyEvents('ihello world\nhello\nhi hello\nfoo'.split(''));
       await modeHandler.handleMultipleKeyEvents(['<Esc>', ...'/hello\n'.split('')]);
       await modeHandler.handleMultipleKeyEvents('3gg2l'.split(''));
-      await modeHandler.handleMultipleKeyEvents(['g', 'N']);
+      await modeHandler.handleMultipleKeyEvents(['g', 'J']);
 
       assert.strictEqual(modeHandler.currentMode, Mode.Visual);
 
