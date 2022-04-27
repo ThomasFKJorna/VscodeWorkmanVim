@@ -3,7 +3,7 @@
   "displayName": "Workman Vim",
   "description": "Workman Vim emulation for Visual Studio Code",
   "icon": "images/icon.png",
-  "version": "1.0.0",
+  "version": "10.22.2",
   "publisher": "Thomas F. K. Jorna",
   "galleryBanner": {
     "color": "#e3f4ff",
