@@ -58,13 +58,13 @@ jobs:
           asset_name: ${{ steps.build_vsix.outputs.vsix_path }}
           asset_content_type: application/zip
 
-      - name: Publish to VSCode Extension Marketplace
-        run: yarn run vsce publish --yarn
-        env:
-          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+    # - name: Publish to VSCode Extension Marketplace
+    #    run: yarn run vsce publish --yarn
+    #    env:
+    #      VSCE_PAT: ${{ secrets.VSCE_PAT }}
 
-      - name: Publish to Open VSX Registry
-        uses: HaaLeo/publish-vscode-extension@v1
-        id: publishToOpenVSX
-        with:
-          pat: ${{ secrets.OPEN_VSX_TOKEN }}
+    #  - name: Publish to Open VSX Registry
+    #    uses: HaaLeo/publish-vscode-extension@v1
+    #    id: publishToOpenVSX
+    #    with:
+    #      pat: ${{ secrets.OPEN_VSX_TOKEN }}
