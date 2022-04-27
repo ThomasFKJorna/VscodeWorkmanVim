@@ -1,4 +1,3 @@
-// @ts-nocheck
 import * as vscode from 'vscode';
 import { IConfiguration } from './iconfiguration';
 
