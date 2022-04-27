@@ -26,11 +26,11 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Prettier
-        if: matrix.os != 'windows-latest'
-        uses: creyD/prettier_action@v3.3
-        with:
-          dry: true
+      # - name: Prettier
+      #  if: matrix.os != 'windows-latest'
+      #  uses: creyD/prettier_action@v3.3
+      #  with:
+      #    dry: true
 
       - name: Lint
         run: npx tslint -c tslint.json -p tsconfig.json
